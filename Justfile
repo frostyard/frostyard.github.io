@@ -86,4 +86,4 @@ setup: submodules-init venv-setup
 clean: build-clean venv-clean
 
 publish: build
-    gh-pages -d site -m "Publish site"
+    mkdocs gh-deploy --remote-branch pages

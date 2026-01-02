@@ -4,6 +4,10 @@ Frostyard builds secure, reproducible OCI-based Linux desktop and server images,
 
 Explore each section for full documentation, usage, and development instructions.
 
+## Atomic Linux Basics
+
+- [What is Atomic](atomic.md)
+
 ## Images
 
 - [Snow](./images/snow/reference.md)
