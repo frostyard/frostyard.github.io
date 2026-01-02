@@ -1,0 +1,15 @@
+site_name: "frostyard"
+site_url: https://frostyard.github.io/
+theme:
+  name: material
+
+plugins:
+  - monorepo
+  - search
+
+nav:
+  - Home: index.md
+  - Images:
+    - Snow: '!include ./snow/mkdocs.yml'
+  - Tools:
+    - chairlift: '!include ./chairlift/mkdocs.yml'

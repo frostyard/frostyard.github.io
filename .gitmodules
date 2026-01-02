@@ -1,0 +1,27 @@
+[submodule "debian-bootc-core"]
+	path = debian-bootc-core
+	url = https://github.com/frostyard/debian-bootc-core.git
+[submodule "debian-bootc-gnome"]
+	path = debian-bootc-gnome
+	url = https://github.com/frostyard/debian-bootc-gnome.git
+[submodule "snow"]
+	path = snow
+	url = https://github.com/frostyard/snow.git
+[submodule "snowfield"]
+	path = snowfield
+	url = https://github.com/frostyard/snowfield.git
+[submodule "cayo"]
+	path = cayo
+	url = https://github.com/frostyard/cayo.git
+[submodule "snowdrift"]
+	path = snowdrift
+	url = https://github.com/frostyard/snowdrift.git
+[submodule "chairlift"]
+	path = chairlift
+	url = https://github.com/frostyard/chairlift.git
+[submodule "first-setup"]
+	path = first-setup
+	url = https://github.com/frostyard/first-setup.git
+[submodule "nbc"]
+	path = nbc
+	url = https://github.com/frostyard/nbc.git

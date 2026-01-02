@@ -1,0 +1,17 @@
+# .github/workflows/update-submodules.yml
+name: Update submodules
+
+on:
+  schedule: [cron: "0 0 * * 0"]
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - run: git submodule update --remote --merge
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: "Update submodules"
