@@ -9,6 +9,8 @@ plugins:
 
 nav:
   - Home: index.md
+  - Atomic Linux:
+    - What Is It?: atomic.md
   - Images:
     - Snow: '!include ./snow/mkdocs.yml'
   - Tools:
