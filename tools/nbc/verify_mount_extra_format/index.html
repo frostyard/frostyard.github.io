@@ -8,26 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://frostyard.github.io/">
+        <link rel="canonical" href="https://frostyard.github.io/tools/nbc/verify_mount_extra_format/">
       
       
-      
-        <link rel="next" href="atomic/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>frostyard</title>
+        <title>systemd.mount-extra Format Verification - frostyard</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -46,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-frostyard" class="md-skip">
+        <a href="#systemdmount-extra-format-verification" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
+    <a href="../../.." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              systemd.mount-extra Format Verification
             
           </span>
         </div>
@@ -178,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
+    <a href="../../.." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -193,37 +191,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -239,59 +210,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#atomic-linux-basics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Atomic Linux Basics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Images
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -350,7 +268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="atomic/" class="md-nav__link">
+      <a href="../../../atomic/" class="md-nav__link">
         
   
   
@@ -479,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="images/snow/reference/" class="md-nav__link">
+      <a href="../../../images/snow/reference/" class="md-nav__link">
         
   
   
@@ -616,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/nbc/cli/nbc/" class="md-nav__link">
+      <a href="../cli/nbc/" class="md-nav__link">
         
   
   
@@ -699,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/chairlift/reference/" class="md-nav__link">
+      <a href="../../chairlift/reference/" class="md-nav__link">
         
   
   
@@ -762,10 +680,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#atomic-linux-basics" class="md-nav__link">
+  <a href="#analysis-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Atomic Linux Basics
+        Analysis Summary
       
     </span>
   </a>
@@ -773,10 +691,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
+  <a href="#evidence-from-systemd-source" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Images
+        Evidence from systemd Source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evidence from systemd Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fstab-generatorc-mount_array_add-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. fstab-generator.c (mount_array_add function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vmspawnc-usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. vmspawn.c Usage Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-standard-mount8-terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Standard mount(8) Terminology
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-code-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Code (WRONG)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current Code (WRONG)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bootloadergo-line-251-and-362" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bootloader.go line 251 and 362:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correct-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correct Format
       
     </span>
   </a>
@@ -784,10 +780,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
+  <a href="#impact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tools
+        Impact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-requiring-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files Requiring Fix
       
     </span>
   </a>
@@ -811,21 +818,84 @@
 
 
 
-<h1 id="welcome-to-frostyard">Welcome to Frostyard</h1>
-<p>Frostyard builds secure, reproducible OCI-based Linux desktop and server images, plus tooling for post-install customization and lifecycle management.</p>
-<p>Explore each section for full documentation, usage, and development instructions.</p>
-<h2 id="atomic-linux-basics">Atomic Linux Basics</h2>
+<h1 id="systemdmount-extra-format-verification">systemd.mount-extra Format Verification</h1>
+<h2 id="analysis-summary">Analysis Summary</h2>
+<p>Based on systemd source code analysis, the <strong>current code is INCORRECT</strong>.</p>
+<h2 id="evidence-from-systemd-source">Evidence from systemd Source</h2>
+<h3 id="1-fstab-generatorc-mount_array_add-function">1. fstab-generator.c (mount_array_add function)</h3>
+<pre><code class="language-c">static int mount_array_add(bool for_initrd, const char *str) {
+        _cleanup_free_ char *what = NULL, *where = NULL, *fstype = NULL, *options = NULL;
+        int r;
+
+        r = extract_many_words(&amp;str, &quot;:&quot;, EXTRACT_CUNESCAPE | EXTRACT_DONT_COALESCE_SEPARATORS,
+                               &amp;what, &amp;where, &amp;fstype, &amp;options);
+        if (r &lt; 0)
+                return r;
+        if (r &lt; 2)
+                return -EINVAL;
+        if (!isempty(str))
+                return -EINVAL;
+
+        return mount_array_add_internal(for_initrd, TAKE_PTR(what), TAKE_PTR(where), fstype, TAKE_PTR(options));
+}
+</code></pre>
+<p><strong>Parse order</strong>: <code>what:where:fstype:options</code></p>
+<h3 id="2-vmspawnc-usage-example">2. vmspawn.c Usage Example</h3>
+<pre><code class="language-c">if (strv_extendf(&amp;arg_kernel_cmdline_extra, &quot;systemd.mount-extra=\&quot;%s:%s:virtiofs:%s\&quot;&quot;,
+                 id, clean_target, mount-&gt;read_only ? &quot;ro&quot; : &quot;rw&quot;) &lt; 0)
+</code></pre>
+<p>Format: <code>&lt;id&gt;:&lt;clean_target&gt;:virtiofs:&lt;mount_options&gt;</code></p>
 <ul>
-<li><a href="atomic/">What is Atomic</a></li>
+<li><code>id</code> = device/source identifier</li>
+<li><code>clean_target</code> = mount point destination</li>
+<li><code>virtiofs</code> = filesystem type</li>
+<li>mount options</li>
 </ul>
-<h2 id="images">Images</h2>
+<h3 id="3-standard-mount8-terminology">3. Standard mount(8) Terminology</h3>
+<p>From mount(8) manpage and fstab(5):</p>
 <ul>
-<li><a href="images/snow/reference/">Snow</a></li>
+<li><strong>what</strong> = device/source (the thing to mount FROM)</li>
+<li><strong>where</strong> = mount point (the place to mount TO)</li>
 </ul>
-<h2 id="tools">Tools</h2>
+<p>Example: <code>mount /dev/sda1 /mnt</code> → mount WHAT (/dev/sda1) WHERE (/mnt)</p>
+<h2 id="current-code-wrong">Current Code (WRONG)</h2>
+<h3 id="bootloadergo-line-251-and-362">bootloader.go line 251 and 362:</h3>
+<pre><code class="language-go">&quot;systemd.mount-extra=/var:UUID=&quot; + varUUID + &quot;:ext4:defaults&quot;
+</code></pre>
+<p>This is parsed as:</p>
 <ul>
-<li><a href="tools/chairlift/reference/">Chairlift</a></li>
+<li>what = <code>/var</code> (mount point - WRONG!)</li>
+<li>where = <code>UUID=...</code> (device - WRONG!)</li>
+<li>fstype = <code>ext4</code></li>
+<li>options = <code>defaults</code></li>
 </ul>
+<h2 id="correct-format">Correct Format</h2>
+<p>Should be:</p>
+<pre><code class="language-go">&quot;systemd.mount-extra=UUID=&quot; + varUUID + &quot;:/var:ext4:defaults&quot;
+</code></pre>
+<p>This would be parsed as:</p>
+<ul>
+<li>what = <code>UUID=...</code> (device - CORRECT!)</li>
+<li>where = <code>/var</code> (mount point - CORRECT!)</li>
+<li>fstype = <code>ext4</code></li>
+<li>options = <code>defaults</code></li>
+</ul>
+<h2 id="impact">Impact</h2>
+<p>This bug would cause systemd to:</p>
+<ol>
+<li>Try to mount the mount point <code>/var</code> as a device</li>
+<li>Try to mount TO the device UUID</li>
+<li>Result in mount failure during boot</li>
+</ol>
+<p>The system may fail to boot or /var may not be mounted, leading to various runtime issues.</p>
+<h2 id="files-requiring-fix">Files Requiring Fix</h2>
+<ol>
+<li><code>/home/bjk/projects/frostyard/nbc/pkg/bootloader.go</code> line 251 (generateGRUBConfig)</li>
+<li><code>/home/bjk/projects/frostyard/nbc/pkg/bootloader.go</code> line 355 (generateSystemdBootConfig)</li>
+</ol>
+<p>Both occurrences need the format corrected to:</p>
+<pre><code class="language-go">&quot;systemd.mount-extra=UUID=&quot; + varUUID + &quot;:/var:ext4:defaults&quot;
+</code></pre>
 
 
 
@@ -875,10 +945,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

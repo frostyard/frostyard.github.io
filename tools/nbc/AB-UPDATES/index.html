@@ -1,0 +1,1423 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frostyard.github.io/tools/nbc/AB-UPDATES/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>A/B Update System - frostyard</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ab-update-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            frostyard
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A/B Update System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    frostyard
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atomic Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Atomic Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../atomic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Images
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Images
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Snow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Snow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../images/snow/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    nbc
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    nbc
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/nbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    chairlift
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    chairlift
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chairlift/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partition Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-for-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check for Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-with-custom-kernel-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update with Custom Kernel Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-image-pull-use-cached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skip Image Pull (Use Cached)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staged-updates-download-now-apply-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Staged Updates (Download Now, Apply Later)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dry-run-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dry Run Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-menu-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boot Menu Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Procedure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Organization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Organization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active-partition-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active Partition Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inactive-partition-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inactive Partition Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Workflow Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-state-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partition State Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grub-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GRUB Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-var-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared /var Partition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-to-other-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison to Other Systems
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison to Other Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vs-traditional-package-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs Traditional Package Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-ostreerpm-ostree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs OSTree/rpm-ostree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-dockerkubernetes-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vs Docker/Kubernetes Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ab-update-system">A/B Update System</h1>
+<h2 id="overview">Overview</h2>
+<p>The <code>nbc update</code> command implements an A/B (dual root) update system that enables safe, atomic system updates with automatic rollback capability.</p>
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="partition-layout">Partition Layout</h3>
+<pre><code>/dev/sdX1 - EFI (2GB)          - Boot files
+/dev/sdX2 - Boot (1GB)         - Kernels and initramfs
+/dev/sdX3 - Root1 (12GB)       - Primary root filesystem
+/dev/sdX4 - Root2 (12GB)       - Secondary root filesystem
+/dev/sdX5 - Var (remaining)    - Shared /var data
+</code></pre>
+<h3 id="update-process">Update Process</h3>
+<ol>
+<li>
+<p><strong>Detect Active Partition</strong></p>
+</li>
+<li>
+<p>Reads <code>/proc/cmdline</code> to determine which root partition is currently booted</p>
+</li>
+<li>
+<p>Identifies the inactive partition as the update target</p>
+</li>
+<li>
+<p><strong>Check If Update Needed</strong></p>
+</li>
+<li>
+<p>Compares installed image digest with remote image digest</p>
+</li>
+<li>Skips update if digests match (system is up-to-date)</li>
+<li>
+<p>Use <code>--force</code> to reinstall even if up-to-date</p>
+</li>
+<li>
+<p><strong>Pull New Image</strong></p>
+</li>
+<li>
+<p>Downloads the latest container image using go-containerregistry</p>
+</li>
+<li>
+<p>Alternatively, uses a pre-staged image from local cache (see <code>nbc download --for-update</code>)</p>
+</li>
+<li>
+<p><strong>Extract to Inactive Partition</strong></p>
+</li>
+<li>
+<p>Mounts the inactive root partition</p>
+</li>
+<li>Clears existing content</li>
+<li>
+<p>Extracts new container filesystem</p>
+</li>
+<li>
+<p><strong>Update Bootloader</strong></p>
+</li>
+<li>
+<p>Updates GRUB configuration to boot from the new partition</p>
+</li>
+<li>Sets new partition as default boot option</li>
+<li>
+<p>Keeps old partition as fallback in boot menu</p>
+</li>
+<li>
+<p><strong>Reboot to Activate</strong></p>
+</li>
+<li>Next boot uses the updated partition</li>
+<li>Previous partition remains available for rollback</li>
+</ol>
+<h2 id="usage">Usage</h2>
+<h3 id="check-for-updates">Check for Updates</h3>
+<pre><code class="language-bash"># Check if an update is available without installing
+sudo nbc update --check
+</code></pre>
+<h3 id="basic-update">Basic Update</h3>
+<pre><code class="language-bash">sudo nbc update \
+  --image quay.io/example/myimage:latest
+</code></pre>
+<p>The device is automatically detected from the running system. Override with <code>--device</code> if needed.</p>
+<h3 id="update-with-custom-kernel-arguments">Update with Custom Kernel Arguments</h3>
+<pre><code class="language-bash">sudo nbc update \
+  --image localhost/custom-image \
+  --karg console=ttyS0 \
+  --karg quiet
+</code></pre>
+<h3 id="skip-image-pull-use-cached">Skip Image Pull (Use Cached)</h3>
+<pre><code class="language-bash">sudo nbc update \
+  --image localhost/myimage \
+  --skip-pull
+</code></pre>
+<h3 id="staged-updates-download-now-apply-later">Staged Updates (Download Now, Apply Later)</h3>
+<p>Download an update image without applying it:</p>
+<pre><code class="language-bash"># Download update using system's configured image
+sudo nbc download --for-update
+
+# Or specify a different image
+sudo nbc download --for-update --image quay.io/example/myimage:v2.0
+</code></pre>
+<p>Apply the staged update later:</p>
+<pre><code class="language-bash"># Apply the previously downloaded update
+sudo nbc update --local-image
+</code></pre>
+<p>Check staged update status:</p>
+<pre><code class="language-bash">nbc status --json
+</code></pre>
+<p>The staged update cache is automatically cleared after successful application.</p>
+<h3 id="dry-run-test">Dry Run Test</h3>
+<pre><code class="language-bash">nbc update \
+  --image test/image \
+  --dry-run
+</code></pre>
+<h2 id="boot-menu-options">Boot Menu Options</h2>
+<p>After an update, the GRUB boot menu provides two options:</p>
+<pre><code>1. Linux (Updated)    - New system (default)
+2. Linux (Previous)   - Previous system (rollback)
+</code></pre>
+<h2 id="rollback-procedure">Rollback Procedure</h2>
+<p>If the new system has issues, you can rollback by:</p>
+<ol>
+<li><strong>At Boot Time</strong>: Select "Linux (Previous)" from GRUB menu</li>
+<li><strong>After Booting</strong>: Run another update to switch back</li>
+</ol>
+<h2 id="file-organization">File Organization</h2>
+<h3 id="implementation-files">Implementation Files</h3>
+<ul>
+<li>
+<p><strong><a href="../pkg/update.go">pkg/update.go</a></strong> - Update logic and A/B switching</p>
+</li>
+<li>
+<p><code>GetActiveRootPartition()</code> - Detects current root</p>
+</li>
+<li><code>GetInactiveRootPartition()</code> - Finds update target</li>
+<li><code>SystemUpdater</code> - Main update orchestrator</li>
+<li>
+<p><code>UpdateBootloader()</code> - GRUB configuration updates</p>
+</li>
+<li>
+<p><strong><a href="../cmd/update.go">cmd/update.go</a></strong> - CLI command interface</p>
+</li>
+</ul>
+<h3 id="key-functions">Key Functions</h3>
+<h4 id="active-partition-detection">Active Partition Detection</h4>
+<pre><code class="language-go">func GetActiveRootPartition() (string, error)
+</code></pre>
+<p>Reads <code>/proc/cmdline</code> to determine which root partition the system booted from.</p>
+<h4 id="inactive-partition-selection">Inactive Partition Selection</h4>
+<pre><code class="language-go">func GetInactiveRootPartition(scheme *PartitionScheme) (string, bool, error)
+</code></pre>
+<p>Returns the partition that should receive the update.</p>
+<h4 id="update-execution">Update Execution</h4>
+<pre><code class="language-go">func (u *SystemUpdater) Update() error
+</code></pre>
+<p>Performs the complete update:</p>
+<ol>
+<li>Mount target partition</li>
+<li>Clear old content</li>
+<li>Extract new filesystem</li>
+<li>Update bootloader configuration</li>
+</ol>
+<h2 id="advantages">Advantages</h2>
+<p>✅ <strong>Atomic Updates</strong>: Either fully succeeds or fully fails - no partial states
+✅ <strong>Zero Downtime</strong>: System remains operational during update
+✅ <strong>Instant Rollback</strong>: Switch back to previous version at boot time
+✅ <strong>Safe Testing</strong>: New system can be tested before commitment
+✅ <strong>Shared Data</strong>: /var partition is shared, preserving application data</p>
+<h2 id="safety-features">Safety Features</h2>
+<ul>
+<li><strong>Confirmation Prompt</strong>: Requires explicit "yes" to proceed</li>
+<li><strong>Dry Run Mode</strong>: Test without making changes</li>
+<li><strong>Separate Partitions</strong>: Update failure doesn't affect running system</li>
+<li><strong>Boot Menu</strong>: Always provides fallback option</li>
+<li><strong>Data Preservation</strong>: /var remains untouched during updates</li>
+</ul>
+<h2 id="update-workflow-example">Update Workflow Example</h2>
+<pre><code class="language-bash"># Initial installation (creates both root partitions)
+sudo nbc install \
+  --image myimage:v1.0 \
+  --device /dev/sda
+
+# Reboot into root1 (partition 3)
+
+# First update (writes to root2 - partition 4)
+sudo nbc update \
+  --image myimage:v1.1 \
+  --device /dev/sda
+
+# Reboot into root2 (partition 4)
+# root1 still has v1.0 for rollback
+
+# Second update (writes back to root1 - partition 3)
+sudo nbc update \
+  --image myimage:v1.2 \
+  --device /dev/sda
+
+# Reboot into root1 (partition 3)
+# root2 still has v1.1 for rollback
+</code></pre>
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="partition-state-detection">Partition State Detection</h3>
+<p>The system determines the active partition by parsing kernel command line:</p>
+<pre><code class="language-bash">$ cat /proc/cmdline
+BOOT_IMAGE=/vmlinuz-6.5.0 root=UUID=xxx-xxx-xxx ro console=tty0
+</code></pre>
+<p>The UUID is matched against partition UUIDs to identify which root is active.</p>
+<h3 id="grub-configuration">GRUB Configuration</h3>
+<p>After update, GRUB config provides both options:</p>
+<pre><code class="language-grub">set timeout=5
+set default=0
+
+menuentry 'Linux (Updated)' {
+    linux /vmlinuz-6.5.0 root=UUID=new-uuid ro console=tty0
+    initrd /initramfs-6.5.0.img
+}
+
+menuentry 'Linux (Previous)' {
+    linux /vmlinuz-6.5.0 root=UUID=old-uuid ro console=tty0
+    initrd /initramfs-6.5.0.img
+}
+</code></pre>
+<h3 id="shared-var-partition">Shared /var Partition</h3>
+<p>Both root filesystems mount the same /var partition, ensuring:</p>
+<ul>
+<li>Application data persists across updates</li>
+<li>Logs are maintained</li>
+<li>Databases remain accessible</li>
+<li>Configuration in /var is preserved</li>
+</ul>
+<h3 id="encryption-support">Encryption Support</h3>
+<p>A/B updates fully support LUKS-encrypted systems. The encryption configuration is stored in <code>/var/lib/nbc/state/config.json</code> during installation and automatically loaded during updates.</p>
+<p>For encrypted systems, the update process:</p>
+<ol>
+<li><strong>Reads encryption config</strong> from the system config file</li>
+<li><strong>Generates correct LUKS kernel arguments</strong> for each root partition:</li>
+<li><code>rd.luks.uuid</code> - LUKS container UUID</li>
+<li><code>rd.luks.name</code> - Mapper device name (root1, root2, or var)</li>
+<li><code>rd.luks.options</code> - TPM2 unlock options (if enabled)</li>
+<li><strong>Creates separate boot entries</strong> with the appropriate LUKS UUIDs for:</li>
+<li>Target partition (the one being updated)</li>
+<li>Active partition (for rollback)</li>
+</ol>
+<p>The system config stores LUKS UUIDs for all partitions:</p>
+<pre><code class="language-json">{
+  &quot;encryption&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;tpm2&quot;: true,
+    &quot;root1_luks_uuid&quot;: &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;,
+    &quot;root2_luks_uuid&quot;: &quot;yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy&quot;,
+    &quot;var_luks_uuid&quot;: &quot;zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz&quot;
+  }
+}
+</code></pre>
+<p>This ensures that after an update, both boot entries (new and previous) have the correct LUKS kernel arguments for their respective root partitions.</p>
+<h2 id="comparison-to-other-systems">Comparison to Other Systems</h2>
+<h3 id="vs-traditional-package-updates">vs Traditional Package Updates</h3>
+<ul>
+<li>✅ Atomic (all-or-nothing)</li>
+<li>✅ Instant rollback</li>
+<li>✅ No package conflicts</li>
+</ul>
+<h3 id="vs-ostreerpm-ostree">vs OSTree/rpm-ostree</h3>
+<ul>
+<li>✅ Simpler implementation</li>
+<li>✅ Standard ext4 filesystems</li>
+<li>⚠️ Larger disk space requirement</li>
+</ul>
+<h3 id="vs-dockerkubernetes-updates">vs Docker/Kubernetes Updates</h3>
+<ul>
+<li>✅ Full system updates (not just containers)</li>
+<li>✅ Includes kernel and bootloader</li>
+<li>✅ Bare metal support</li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<p>Potential improvements:</p>
+<ul>
+<li>[ ] Automatic health checks before switching</li>
+<li>[ ] Scheduled updates</li>
+<li>[ ] Multi-version retention (keep more than 2 versions)</li>
+<li>[ ] Delta updates (only transfer changes)</li>
+<li>[ ] Automatic rollback on boot failure</li>
+<li>[ ] Status command to show active partition</li>
+<li>[ ] Update history tracking</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1370 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frostyard.github.io/tools/nbc/SECURE-BOOT/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Secure Boot Support in nbc - frostyard</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#secure-boot-support-in-nbc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            frostyard
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Secure Boot Support in nbc
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    frostyard
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atomic Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Atomic Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../atomic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Images
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Images
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Snow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Snow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../images/snow/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    nbc
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    nbc
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/nbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    chairlift
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    chairlift
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chairlift/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-shim-bootloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Shim Bootloader
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efi-directory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFI Directory Layout
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EFI Directory Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-systemd-boot-debianubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For systemd-boot (Debian/Ubuntu)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-grub2-fedorarhel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For GRUB2 (Fedora/RHEL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-locations-for-signed-binaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Locations for Signed Binaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source Locations for Signed Binaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debianubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debian/Ubuntu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fedorarhelcentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fedora/RHEL/CentOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-not-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What NOT to Do
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What NOT to Do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#do-not-install-fbx64efi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Do NOT install fbx64.efi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-not-use-unsigned-binaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Do NOT use unsigned binaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-not-use-signed-systemd-boot-directly-as-bootx64efi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Do NOT use signed systemd-boot directly as BOOTX64.EFI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-not-assume-efi-directory-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Do NOT assume EFI directory case
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restore-boot-option-blue-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Restore Boot Option" Blue Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-denied-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Access Denied" Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-boots-to-wrong-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Boots to Wrong Device
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootctl-shows-secure-boot-disabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bootctl Shows "Secure Boot: disabled"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#investigation-history-december-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation History (December 2025)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Investigation History (December 2025)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-attempt-1-using-unsigned-bootloaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failed Attempt 1: Using unsigned bootloaders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-attempt-2-signed-systemd-boot-as-bootx64efi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failed Attempt 2: Signed systemd-boot as BOOTX64.EFI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-attempt-3-shim-systemd-boot-fbx64efi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failed Attempt 3: Shim + systemd-boot + fbx64.efi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-attempt-4-incorrect-assumption-about-systemd-boot-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failed Attempt 4: Incorrect assumption about systemd-boot path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-secure-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Secure Boot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Secure Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-secure-boot-vm-with-incus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Secure Boot VM with Incus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-secure-boot-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Secure Boot Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-correct-binaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Correct Binaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="secure-boot-support-in-nbc">Secure Boot Support in nbc</h1>
+<p>This document describes how nbc handles Secure Boot for both GRUB2 and systemd-boot bootloaders.</p>
+<h2 id="overview">Overview</h2>
+<p>Secure Boot is a UEFI feature that ensures only signed bootloaders can execute. The trust chain works as follows:</p>
+<ol>
+<li><strong>UEFI Firmware</strong> trusts Microsoft's UEFI CA</li>
+<li><strong>Shim</strong> is signed by Microsoft, so firmware trusts it</li>
+<li><strong>Shim</strong> contains the distro's key (e.g., Debian, Fedora) and trusts binaries signed by that key</li>
+<li><strong>Bootloader</strong> (GRUB or systemd-boot) is signed by the distro, so shim trusts it</li>
+<li><strong>Kernel</strong> is either signed or loaded via MOK (Machine Owner Key)</li>
+</ol>
+<h2 id="the-shim-bootloader">The Shim Bootloader</h2>
+<p>Shim is the critical component for Secure Boot. Key facts:</p>
+<ul>
+<li><strong>Signed by Microsoft</strong>: UEFI firmware trusts it</li>
+<li><strong>Contains distro key</strong>: Can verify distro-signed binaries</li>
+<li><strong>Hardcoded to load <code>grubx64.efi</code></strong>: Looks for this file in the same directory</li>
+<li><strong>Only verifies signature</strong>: Doesn't care what grubx64.efi actually is</li>
+</ul>
+<p>This last point is crucial: shim will happily load a signed systemd-boot binary as long as it's named <code>grubx64.efi</code> and signed by the distro key.</p>
+<h2 id="efi-directory-layout">EFI Directory Layout</h2>
+<h3 id="for-systemd-boot-debianubuntu">For systemd-boot (Debian/Ubuntu)</h3>
+<pre><code>/boot/EFI/
+├── BOOT/
+│   ├── BOOTX64.EFI      ← shimx64.efi.signed (957KB)
+│   ├── grubx64.efi      ← systemd-bootx64.efi.signed (125KB) - NOT GRUB!
+│   └── mmx64.efi        ← mmx64.efi.signed (850KB, optional)
+└── systemd/
+    └── systemd-bootx64.efi  ← copy for bootctl discoverability
+</code></pre>
+<h3 id="for-grub2-fedorarhel">For GRUB2 (Fedora/RHEL)</h3>
+<pre><code>/boot/EFI/
+├── BOOT/
+│   ├── BOOTX64.EFI      ← shimx64.efi
+│   ├── grubx64.efi      ← signed grubx64.efi from container
+│   └── mmx64.efi        ← MOK manager (optional)
+└── fedora/              ← or centos, redhat
+    └── grub.cfg         ← GRUB configuration
+</code></pre>
+<h2 id="source-locations-for-signed-binaries">Source Locations for Signed Binaries</h2>
+<h3 id="debianubuntu">Debian/Ubuntu</h3>
+<table>
+<thead>
+<tr>
+<th>Binary</th>
+<th>Location in Container</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shim</td>
+<td><code>/usr/lib/shim/shimx64.efi.signed</code></td>
+</tr>
+<tr>
+<td>MOK Manager</td>
+<td><code>/usr/lib/shim/mmx64.efi.signed</code></td>
+</tr>
+<tr>
+<td>systemd-boot</td>
+<td><code>/usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed</code></td>
+</tr>
+<tr>
+<td>Fallback</td>
+<td><code>/usr/lib/shim/fbx64.efi.signed</code> (<strong>DO NOT USE</strong>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fedorarhelcentos">Fedora/RHEL/CentOS</h3>
+<table>
+<thead>
+<tr>
+<th>Binary</th>
+<th>Location in Container</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shim</td>
+<td><code>/boot/efi/EFI/{distro}/shimx64.efi</code></td>
+</tr>
+<tr>
+<td>GRUB</td>
+<td><code>/boot/efi/EFI/{distro}/grubx64.efi</code></td>
+</tr>
+<tr>
+<td>MOK Manager</td>
+<td><code>/boot/efi/EFI/{distro}/mmx64.efi</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-not-to-do">What NOT to Do</h2>
+<h3 id="do-not-install-fbx64efi">❌ Do NOT install fbx64.efi</h3>
+<p>The fallback bootloader (<code>fbx64.efi</code>) causes a "Restore Boot Option" blue screen because:</p>
+<ol>
+<li>fbx64.efi looks for <code>EFI/&lt;distro&gt;/BOOTX64.CSV</code></li>
+<li>Our setup uses <code>EFI/BOOT/</code> (removable media path)</li>
+<li>When CSV is not found, fbx64.efi shows the blue screen</li>
+</ol>
+<p>We use <code>efibootmgr</code> to register boot entries instead.</p>
+<h3 id="do-not-use-unsigned-binaries">❌ Do NOT use unsigned binaries</h3>
+<ul>
+<li><code>grub-install</code> produces <strong>unsigned</strong> GRUB EFI binaries</li>
+<li>These will be rejected by Secure Boot</li>
+<li>Always use the signed binaries from the container image</li>
+</ul>
+<h3 id="do-not-use-signed-systemd-boot-directly-as-bootx64efi">❌ Do NOT use signed systemd-boot directly as BOOTX64.EFI</h3>
+<ul>
+<li>Distro signing keys are not in UEFI firmware's trust store</li>
+<li>Only Microsoft-signed binaries (like shim) are trusted directly</li>
+<li>Must go through shim chain</li>
+</ul>
+<h3 id="do-not-assume-efi-directory-case">❌ Do NOT assume EFI directory case</h3>
+<ul>
+<li>Container extraction may create lowercase <code>efi</code></li>
+<li>FAT32 is case-insensitive but case-preserving</li>
+<li>Use two-step rename: <code>efi</code> → <code>efi_tmp</code> → <code>EFI</code></li>
+</ul>
+<h2 id="debugging-guide">Debugging Guide</h2>
+<h3 id="restore-boot-option-blue-screen">"Restore Boot Option" Blue Screen</h3>
+<p><strong>Cause</strong>: fbx64.efi is being executed</p>
+<p><strong>Solution</strong>: Remove fbx64.efi from <code>EFI/BOOT/</code></p>
+<pre><code class="language-bash"># From rescue environment
+mount /dev/sda1 /mnt
+rm /mnt/EFI/BOOT/fbx64.efi
+umount /mnt
+reboot
+</code></pre>
+<h3 id="access-denied-error">"Access Denied" Error</h3>
+<p><strong>Cause</strong>: Secure Boot rejected an unsigned or incorrectly-signed binary</p>
+<p><strong>Solutions</strong>:</p>
+<ol>
+<li>Ensure shim is used as BOOTX64.EFI (not systemd-boot directly)</li>
+<li>Verify grubx64.efi is the <strong>signed</strong> binary from the container</li>
+<li>Check that shim and bootloader are from the same distro</li>
+</ol>
+<h3 id="system-boots-to-wrong-device">System Boots to Wrong Device</h3>
+<p><strong>Cause</strong>: Boot order not set correctly</p>
+<p><strong>Solution</strong>:</p>
+<pre><code class="language-bash"># Check current order
+efibootmgr -v
+
+# Set your OS first (replace 0008 with your boot entry)
+efibootmgr -o 0008,0002,0003
+</code></pre>
+<h3 id="bootctl-shows-secure-boot-disabled">bootctl Shows "Secure Boot: disabled"</h3>
+<p><strong>Possible causes</strong>:</p>
+<ol>
+<li>Secure Boot not enabled in firmware</li>
+<li>Booted directly, not through shim</li>
+</ol>
+<p><strong>Verification</strong>:</p>
+<pre><code class="language-bash">mokutil --sb-state  # Should say &quot;SecureBoot enabled&quot;
+</code></pre>
+<h2 id="investigation-history-december-2025">Investigation History (December 2025)</h2>
+<p>This section documents the debugging process that led to the current implementation.</p>
+<h3 id="initial-problem">Initial Problem</h3>
+<p>After installing a Debian system with systemd-boot using nbc, Secure Boot failed with various symptoms including "Restore Boot Option" blue screen.</p>
+<h3 id="failed-attempt-1-using-unsigned-bootloaders">Failed Attempt 1: Using unsigned bootloaders</h3>
+<ul>
+<li>Tried using <code>grub-install</code> output directly</li>
+<li>Result: Secure Boot rejected the unsigned binary</li>
+</ul>
+<h3 id="failed-attempt-2-signed-systemd-boot-as-bootx64efi">Failed Attempt 2: Signed systemd-boot as BOOTX64.EFI</h3>
+<ul>
+<li>Assumption: Distro-signed binaries are in Microsoft's trust chain</li>
+<li>Reality: They're not - only shim is Microsoft-signed</li>
+<li>Result: "Access Denied"</li>
+</ul>
+<h3 id="failed-attempt-3-shim-systemd-boot-fbx64efi">Failed Attempt 3: Shim + systemd-boot + fbx64.efi</h3>
+<ul>
+<li>Included fbx64.efi thinking it was needed for boot recovery</li>
+<li>Result: "Restore Boot Option" blue screen</li>
+<li>Root cause: fbx64.efi couldn't find BOOTX64.CSV</li>
+</ul>
+<h3 id="failed-attempt-4-incorrect-assumption-about-systemd-boot-path">Failed Attempt 4: Incorrect assumption about systemd-boot path</h3>
+<ul>
+<li>Assumed systemd-boot couldn't work as grubx64.efi because it "needs to know its path"</li>
+<li>This was wrong - systemd-boot finds loader.conf relative to ESP root</li>
+<li>Wasted time trying alternative approaches</li>
+</ul>
+<h3 id="working-solution">Working Solution</h3>
+<ol>
+<li><strong>Shim as BOOTX64.EFI</strong> - Microsoft-signed, trusted by firmware</li>
+<li><strong>Signed systemd-boot as grubx64.efi</strong> - Distro-signed, trusted by shim</li>
+<li><strong>MOK manager</strong> - For key enrollment if needed</li>
+<li><strong>NO fbx64.efi</strong> - Causes blue screen</li>
+</ol>
+<h3 id="key-insight">Key Insight</h3>
+<p>Shim doesn't care what <code>grubx64.efi</code> actually is. It only:</p>
+<ol>
+<li>Looks for a file named <code>grubx64.efi</code> in the same directory</li>
+<li>Verifies the signature against the embedded distro key</li>
+<li>Loads and executes it if signature is valid</li>
+</ol>
+<p>This means systemd-boot works perfectly as <code>grubx64.efi</code> because:</p>
+<ul>
+<li>It's signed by Debian's key</li>
+<li>Shim trusts Debian's key</li>
+<li>systemd-boot doesn't care what filename it's loaded as</li>
+</ul>
+<h2 id="testing-secure-boot">Testing Secure Boot</h2>
+<h3 id="create-a-secure-boot-vm-with-incus">Create a Secure Boot VM with Incus</h3>
+<pre><code class="language-bash"># Create VM with Secure Boot enabled
+incus launch images:debian/trixie myvm --vm \
+  -c security.secureboot=true
+
+# Attach install ISO
+incus config device add myvm iso disk \
+  source=/path/to/installer.iso boot.priority=10
+
+# Start and connect
+incus start myvm
+incus console myvm
+</code></pre>
+<h3 id="verify-secure-boot-status">Verify Secure Boot Status</h3>
+<pre><code class="language-bash"># Inside the running system
+mokutil --sb-state
+# Should output: SecureBoot enabled
+
+bootctl status
+# Should show: Secure Boot: enabled (user)
+</code></pre>
+<h3 id="verify-correct-binaries">Verify Correct Binaries</h3>
+<pre><code class="language-bash"># Check file sizes to identify binaries
+ls -la /boot/EFI/BOOT/
+
+# Expected:
+# BOOTX64.EFI ~957KB (shim)
+# grubx64.efi ~125KB (systemd-boot) or ~2MB (GRUB)
+# mmx64.efi   ~850KB (MOK manager)
+</code></pre>
+<h2 id="related-files">Related Files</h2>
+<ul>
+<li><code>pkg/bootloader.go</code> - Main bootloader installation code</li>
+<li><code>setupSystemdBootSecureBootChain()</code> - systemd-boot Secure Boot setup</li>
+<li><code>setupSecureBootChain()</code> - GRUB2 Secure Boot setup</li>
+<li><code>findShimEFI()</code>, <code>findSignedSystemdBootEFI()</code>, etc. - Binary locators</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

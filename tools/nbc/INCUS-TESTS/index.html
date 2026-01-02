@@ -1,0 +1,1383 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frostyard.github.io/tools/nbc/INCUS-TESTS/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Incus Integration Testing - frostyard</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#incus-integration-testing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            frostyard
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Incus Integration Testing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    frostyard
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atomic Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Atomic Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../atomic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Images
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Images
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Snow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Snow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../images/snow/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    nbc
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    nbc
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/nbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    chairlift
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    chairlift
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chairlift/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-incus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Incus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-incus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialize Incus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Tests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-private-container-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Private Container Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-gets-tested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Tested
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Gets Tested">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-list-disks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. List Disks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validate-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validate Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-to-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install to Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-verify-partition-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify Partition Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-verify-bootloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verify Bootloader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-verify-root-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Verify Root Filesystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-system-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. System Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-verify-ab-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Verify A/B Partitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-verify-grub-boot-entries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Verify GRUB Boot Entries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-verify-kernel-and-initramfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verify Kernel and Initramfs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Duration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incus-command-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "incus: command not found"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-incus-is-not-initialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Error: Incus is not initialized"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-vm-failed-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Error: VM failed to start"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insufficient-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insufficient storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-test-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Test Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smaller-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smaller Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-vm-after-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep VM After Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-other-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison with Other Tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="incus-integration-testing">Incus Integration Testing</h1>
+<p>This document describes the Incus-based integration testing for nbc.</p>
+<h2 id="overview">Overview</h2>
+<p>The Incus test suite (<code>test_incus.sh</code>) provides comprehensive end-to-end testing in isolated virtual machines. Unlike loop device tests, Incus tests run in real VMs with actual bootloaders and complete system environments.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="install-incus">Install Incus</h3>
+<pre><code class="language-bash"># Ubuntu/Debian (from package)
+sudo apt install incus
+
+# Or use snap
+sudo snap install incus
+
+# Or build from source
+# See: https://linuxcontainers.org/incus/docs/main/installing/
+</code></pre>
+<h3 id="initialize-incus">Initialize Incus</h3>
+<pre><code class="language-bash">sudo incus admin init
+</code></pre>
+<p>For testing, you can use the default answers for most questions. Ensure you have:</p>
+<ul>
+<li>Default storage pool (ZFS, btrfs, or dir)</li>
+<li>Network bridge configured</li>
+<li>At least 10GB free storage</li>
+</ul>
+<h2 id="running-tests">Running Tests</h2>
+<pre><code class="language-bash"># Run all Incus integration tests (recommended)
+sudo make test-incus
+
+# Or run the script directly with preserved PATH
+sudo -E env &quot;PATH=$PATH&quot; ./test_incus.sh
+
+# Use a custom/private container image
+TEST_IMAGE=ghcr.io/myorg/myimage:latest sudo -E ./test_incus.sh
+</code></pre>
+<p><strong>Important</strong>: The test requires <code>go</code> and <code>make</code> to be in PATH. The Makefile target automatically preserves your PATH when running with sudo. If running the script directly, use <code>sudo -E env "PATH=$PATH"</code> to ensure all tools are available.</p>
+<h3 id="using-private-container-images">Using Private Container Images</h3>
+<p>By default, tests use <code>quay.io/centos-bootc/centos-bootc:stream9</code> (public image).</p>
+<p>To test with a private image:</p>
+<ol>
+<li><strong>Login to the registry</strong>:</li>
+</ol>
+<p><code>bash
+   docker login ghcr.io
+   # or
+   podman login ghcr.io</code></p>
+<ol>
+<li><strong>Run tests with your image</strong>:
+   <code>bash
+   TEST_IMAGE=ghcr.io/myorg/myimage:latest sudo -E ./test_incus.sh</code></li>
+</ol>
+<p>The test will use credentials from <code>~/.docker/config.json</code> automatically.</p>
+<h2 id="what-gets-tested">What Gets Tested</h2>
+<p>The Incus integration test performs the following tests:</p>
+<h3 id="1-list-disks">1. List Disks</h3>
+<p>Verifies <code>nbc list</code> can discover available disks in the VM.</p>
+<h3 id="2-validate-disk">2. Validate Disk</h3>
+<p>Tests <code>nbc validate</code> correctly identifies suitable installation targets.</p>
+<h3 id="3-install-to-disk">3. Install to Disk</h3>
+<p>Performs a complete bootc image installation:</p>
+<ul>
+<li>Creates 5-partition GPT layout (EFI, boot, root1, root2, var)</li>
+<li>Extracts container filesystem</li>
+<li>Installs GRUB2 bootloader</li>
+<li>Configures fstab and system files</li>
+</ul>
+<h3 id="4-verify-partition-layout">4. Verify Partition Layout</h3>
+<p>Checks that exactly 5 partitions are created with correct labels and sizes.</p>
+<h3 id="5-verify-bootloader">5. Verify Bootloader</h3>
+<p>Validates:</p>
+<ul>
+<li>GRUB installation to EFI partition</li>
+<li>Boot partition contents</li>
+<li>GRUB configuration file</li>
+</ul>
+<h3 id="6-verify-root-filesystem">6. Verify Root Filesystem</h3>
+<p>Inspects the installed root filesystem:</p>
+<ul>
+<li>Directory structure</li>
+<li>Nbc configuration file</li>
+<li>fstab entries</li>
+<li>Symlinks to /var</li>
+</ul>
+<h3 id="7-system-update">7. System Update</h3>
+<p>Performs an A/B update:</p>
+<ul>
+<li>Pulls new image</li>
+<li>Installs to inactive partition (root2)</li>
+<li>Merges user /etc modifications from active root to new root</li>
+<li>Updates bootloader</li>
+</ul>
+<h3 id="8-verify-ab-partitions">8. Verify A/B Partitions</h3>
+<p>Confirms both root partitions contain valid filesystems after update.</p>
+<h3 id="9-verify-grub-boot-entries">9. Verify GRUB Boot Entries</h3>
+<p>Checks GRUB menu has entries for both systems (updated and previous).</p>
+<h3 id="10-verify-kernel-and-initramfs">10. Verify Kernel and Initramfs</h3>
+<p>Validates kernel and initramfs are properly installed in /boot partition.</p>
+<h2 id="test-environment">Test Environment</h2>
+<p>Each test run:</p>
+<ul>
+<li>Creates a fresh Fedora 40 VM</li>
+<li>Attaches a 60GB virtual disk</li>
+<li>Installs required tools (grub2, gdisk, etc.)</li>
+<li>Copies nbc binary to VM</li>
+<li>Runs all tests</li>
+<li>Cleans up VM and resources automatically</li>
+</ul>
+<h2 id="test-duration">Test Duration</h2>
+<p>Typical test run takes <strong>10-20 minutes</strong> depending on:</p>
+<ul>
+<li>Network speed (image downloads)</li>
+<li>Disk I/O performance</li>
+<li>CPU speed (image extraction, filesystem operations)</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="incus-command-not-found">"incus: command not found"</h3>
+<p>Install Incus following the <a href="https://linuxcontainers.org/incus/docs/main/installing/">official documentation</a>.</p>
+<h3 id="error-incus-is-not-initialized">"Error: Incus is not initialized"</h3>
+<p>Run <code>sudo incus admin init</code> to set up Incus storage and networking.</p>
+<h3 id="error-vm-failed-to-start">"Error: VM failed to start"</h3>
+<p>Check Incus logs:</p>
+<pre><code class="language-bash">incus info nbc-test-&lt;PID&gt; --show-log
+</code></pre>
+<p>Ensure your system supports KVM virtualization:</p>
+<pre><code class="language-bash"># Check for KVM support
+lsmod | grep kvm
+
+# If missing, load KVM module
+sudo modprobe kvm
+sudo modprobe kvm_intel  # or kvm_amd
+</code></pre>
+<h3 id="test-timeout">Test timeout</h3>
+<p>If tests timeout, increase the timeout value in <code>test_incus.sh</code>:</p>
+<pre><code class="language-bash">TIMEOUT=1800  # 30 minutes
+</code></pre>
+<h3 id="insufficient-storage">Insufficient storage</h3>
+<p>Incus needs space for:</p>
+<ul>
+<li>VM image (2-3 GB)</li>
+<li>Virtual disk (60 GB)</li>
+<li>Container image (2-5 GB)</li>
+</ul>
+<p>Ensure your storage pool has at least 70 GB free:</p>
+<pre><code class="language-bash">incus storage info default
+</code></pre>
+<h2 id="log-files">Log Files</h2>
+<p>Failed tests save logs to <code>/tmp</code>:</p>
+<ul>
+<li><code>/tmp/nbc-install-&lt;PID&gt;.log</code> - Installation log</li>
+<li><code>/tmp/nbc-update-&lt;PID&gt;.log</code> - Update log</li>
+</ul>
+<h2 id="cleanup">Cleanup</h2>
+<p>The test script automatically cleans up:</p>
+<ul>
+<li>Stops and deletes VMs</li>
+<li>Removes storage volumes</li>
+<li>Deletes temporary build directories</li>
+</ul>
+<p>Manual cleanup if needed:</p>
+<pre><code class="language-bash"># List VMs
+incus list
+
+# Delete stuck VM
+incus delete nbc-test-&lt;PID&gt; --force
+
+# List and delete storage volumes
+incus storage volume list default
+incus storage volume delete default nbc-test-&lt;PID&gt;-disk
+</code></pre>
+<h2 id="cicd-integration">CI/CD Integration</h2>
+<p>To run Incus tests in CI:</p>
+<pre><code class="language-yaml"># GitHub Actions example
+test-incus:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - name: Install Incus
+      run: |
+        sudo snap install incus
+        sudo incus admin init --auto
+    - name: Run Incus Tests
+      run: sudo make test-incus
+</code></pre>
+<p>Note: Many CI runners don't support nested virtualization, so Incus VM tests may need to run on self-hosted runners with KVM support.</p>
+<h2 id="advanced-usage">Advanced Usage</h2>
+<h3 id="custom-test-image">Custom Test Image</h3>
+<p>Edit <code>test_incus.sh</code> to use your own bootc image:</p>
+<pre><code class="language-bash">TEST_IMAGE=&quot;quay.io/your-org/your-bootc-image:latest&quot;
+</code></pre>
+<h3 id="smaller-disk">Smaller Disk</h3>
+<p>For faster tests with smaller images:</p>
+<pre><code class="language-bash">DISK_SIZE=&quot;30GB&quot;
+</code></pre>
+<h3 id="keep-vm-after-tests">Keep VM After Tests</h3>
+<p>Comment out the cleanup trap:</p>
+<pre><code class="language-bash"># trap cleanup EXIT INT TERM
+</code></pre>
+<p>Then manually inspect the VM:</p>
+<pre><code class="language-bash">incus exec nbc-test-&lt;PID&gt; -- bash
+</code></pre>
+<h2 id="comparison-with-other-tests">Comparison with Other Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test Type</th>
+<th>Isolation</th>
+<th>Bootloader</th>
+<th>Speed</th>
+<th>Realism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Process</td>
+<td>No</td>
+<td>Fast</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Loop Device</td>
+<td>Process</td>
+<td>No</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Incus VM</td>
+<td>Full VM</td>
+<td>Yes</td>
+<td>Slow</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>Incus tests provide the highest confidence that nbc works in real-world scenarios.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

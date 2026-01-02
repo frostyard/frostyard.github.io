@@ -1,0 +1,1688 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frostyard.github.io/tools/nbc/ETC-OVERLAY/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>/etc Overlay Persistence - frostyard</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#etc-overlay-persistence" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            frostyard
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              /etc Overlay Persistence
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    frostyard
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atomic Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Atomic Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../atomic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Images
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Images
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Snow
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Snow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../images/snow/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    nbc
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    nbc
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/nbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    chairlift
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    chairlift
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chairlift/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overlay-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kernel Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dracut-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dracut Module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime Detection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime Detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shell-script-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Script Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-code-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Go Code Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmatic-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programmatic Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conflict Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-image-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Image Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filesystem-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filesystem Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-images-with-pre-included-etc-overlay-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building Images with Pre-included etc-overlay Module
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Images with Pre-included etc-overlay Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-1-install-nbc-package-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Install nbc Package (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-copy-dracut-module-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Copy Dracut Module Manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-build-module-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Build Module from Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-the-initramfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying the Initramfs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nbc-behavior-with-pre-built-initramfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nbc Behavior with Pre-built Initramfs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caveats-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caveats and Limitations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caveats and Limitations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-only-root-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read-Only Root Filesystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Read-Only Root Filesystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-overlay-works-with-read-only-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Overlay Works with Read-Only Root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etcmachine-id-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /etc/machine-id Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-boot-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First Boot Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hidden-lower-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hidden Lower Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overlay-upper-layer-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay Upper Layer Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-that-may-cause-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files That May Cause Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ab-update-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A/B Update Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-if-system-booted-via-nbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check if System Booted via nbc
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-if-overlay-is-active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check if Overlay is Active
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-overlay-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Overlay Directories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-lower-layer-hidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Lower Layer (Hidden)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overlay-not-mounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay Not Mounting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regenerate-initramfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regenerate Initramfs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="etc-overlay-persistence">/etc Overlay Persistence</h1>
+<h2 id="overview">Overview</h2>
+<p><code>nbc</code> implements an overlay-based persistence mechanism for <code>/etc</code> that allows user modifications to persist across A/B system updates while keeping the base <code>/etc</code> from the container image intact.</p>
+<p>This approach uses Linux's overlayfs filesystem to layer a writable directory on top of the read-only container <code>/etc</code>, providing:</p>
+<ul>
+<li><strong>Persistent user modifications</strong>: Changes to <code>/etc</code> survive reboots and A/B updates</li>
+<li><strong>Clean update path</strong>: New container images bring updated <code>/etc</code> without overwriting user changes</li>
+<li><strong>Conflict detection</strong>: Warns when both user and container have modified the same file</li>
+<li><strong>Automatic setup</strong>: Works transparently after installation</li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="overlay-structure">Overlay Structure</h3>
+<pre><code class="language-text">/etc (merged view seen by the system)
+├── lowerdir: /.etc.lower (original /etc from container, read-only)
+├── upperdir: /var/lib/nbc/etc-overlay/upper (user modifications, writable)
+└── workdir: /var/lib/nbc/etc-overlay/work (overlayfs internal)
+</code></pre>
+<p>When the system boots:</p>
+<ol>
+<li><strong>Installation/Update</strong>: <code>nbc</code> populates <code>/.etc.lower</code> with the container's <code>/etc</code></li>
+<li><strong>Dracut module</strong> (<code>95etc-overlay</code>) runs during initramfs, before pivot_root</li>
+<li>Overlayfs mounts over <code>/etc</code> with <code>/.etc.lower</code> as the lower layer</li>
+<li>User writes go to <code>/var/lib/nbc/etc-overlay/upper</code></li>
+<li>Reads see merged view: user modifications overlay container files</li>
+<li><code>/.etc.lower</code> is hidden by a tmpfs mount to prevent accidental modification</li>
+</ol>
+<h3 id="kernel-parameters">Kernel Parameters</h3>
+<p>The overlay is controlled by kernel command-line parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rd.etc.overlay=1</code></td>
+<td>Enable /etc overlay (required)</td>
+</tr>
+<tr>
+<td><code>rd.etc.overlay.var=UUID=xxx</code></td>
+<td>/var partition UUID for overlay storage</td>
+</tr>
+<tr>
+<td><code>rd.etc.overlay.var=/dev/xxx</code></td>
+<td>/var partition device path (alternative)</td>
+</tr>
+</tbody>
+</table>
+<p>These are automatically added to the bootloader configuration during installation.</p>
+<h2 id="directory-layout">Directory Layout</h2>
+<p>After installation, the following directories are created on the <code>/var</code> partition:</p>
+<pre><code class="language-text">/var/lib/nbc/
+├── etc-overlay/
+│   ├── upper/    # User modifications to /etc (overlayfs upperdir)
+│   └── work/     # Overlayfs workdir (internal use)
+└── etc.pristine/ # Snapshot of original /etc at install time
+</code></pre>
+<h2 id="implementation-details">Implementation Details</h2>
+<h3 id="dracut-module">Dracut Module</h3>
+<p>The overlay is set up by a custom dracut module at <code>/usr/lib/dracut/modules.d/95etc-overlay/</code>:</p>
+<ul>
+<li><strong><code>module-setup.sh</code></strong>: Declares dependencies and installs the hook</li>
+<li><strong><code>etc-overlay-mount.sh</code></strong>: Pre-pivot hook that mounts the overlay</li>
+</ul>
+<p>The module runs in the <code>pre-pivot</code> phase, after the root filesystem is mounted but before systemd takes over. This timing is critical because:</p>
+<ol>
+<li><code>/var</code> must be mounted first (for overlay storage)</li>
+<li><code>/etc</code> must not be in use yet (allows moving it to lower layer)</li>
+<li>Runs before dbus-broker/systemd services need <code>/etc</code></li>
+</ol>
+<h3 id="installation-process">Installation Process</h3>
+<p>During <code>nbc install</code>:</p>
+<ol>
+<li>Extract container filesystem to root partition</li>
+<li>Install dracut module to <code>/usr/lib/dracut/modules.d/95etc-overlay/</code></li>
+<li>Regenerate initramfs to include the module</li>
+<li>Create overlay directories on <code>/var</code> partition</li>
+<li>Save pristine <code>/etc</code> snapshot for conflict detection</li>
+<li>Configure bootloader with <code>rd.etc.overlay=1</code> kernel parameter</li>
+</ol>
+<h3 id="update-process">Update Process</h3>
+<p>During <code>nbc update</code>:</p>
+<ol>
+<li>Install new container to inactive root partition</li>
+<li>Install dracut module and regenerate initramfs</li>
+<li>Overlay directories already exist on shared <code>/var</code></li>
+<li>Detect conflicts between user modifications and container changes</li>
+<li>Configure bootloader for new root with overlay parameters</li>
+</ol>
+<p>User modifications in <code>/var/lib/nbc/etc-overlay/upper</code> automatically apply to the new root's <code>/etc</code> when overlay mounts at boot.</p>
+<h3 id="runtime-detection">Runtime Detection</h3>
+<p>A marker file at <code>/run/nbc-booted</code> indicates the system was installed and booted via nbc. This is similar to <code>/run/ostree-booted</code> created by bootc/ostree systems.</p>
+<p>The marker is created by <code>systemd-tmpfiles</code> during boot via <code>/usr/lib/tmpfiles.d/nbc.conf</code>. This ensures the marker exists after systemd mounts a fresh tmpfs on <code>/run</code> following switch_root.</p>
+<h4 id="shell-script-detection">Shell Script Detection</h4>
+<pre><code class="language-bash">if [ -f /run/nbc-booted ]; then
+    echo &quot;Running on nbc-managed system&quot;
+fi
+</code></pre>
+<h4 id="go-code-detection">Go Code Detection</h4>
+<p>The <code>pkg</code> package provides a helper function:</p>
+<pre><code class="language-go">import &quot;github.com/frostyard/nbc/pkg&quot;
+
+if pkg.IsNBCBooted() {
+    // System was booted via nbc
+    fmt.Println(&quot;nbc-managed system detected&quot;)
+}
+</code></pre>
+<h4 id="programmatic-use-cases">Programmatic Use Cases</h4>
+<ul>
+<li>Conditionally enable/disable features based on boot method</li>
+<li>Detect whether A/B updates are available</li>
+<li>Validate that nbc dracut module ran successfully</li>
+<li>System inventory and management tools</li>
+</ul>
+<h3 id="conflict-detection">Conflict Detection</h3>
+<p>When updating, <code>nbc</code> compares:</p>
+<ul>
+<li>Files in overlay upper (user-modified files)</li>
+<li>Files in new container's <code>/etc</code></li>
+<li>Files in pristine <code>/etc</code> snapshot from previous installation</li>
+</ul>
+<p>A conflict is detected when:</p>
+<ul>
+<li>A file exists in the overlay upper (user modified it), AND</li>
+<li>The same file differs between pristine and new container (container updated it)</li>
+</ul>
+<p>Conflicts are reported but <strong>user modifications take precedence</strong>. The overlay upper layer always wins, meaning container updates to conflicting files are hidden.</p>
+<pre><code class="language-text">Warning: Potential conflicts detected (files modified by both user and update):
+  ! resolv.conf
+  ! hostname
+User modifications in overlay will take precedence over container changes.
+</code></pre>
+<h2 id="requirements">Requirements</h2>
+<h3 id="container-image-requirements">Container Image Requirements</h3>
+<ul>
+<li><strong>dracut</strong>: Must be installed at <code>/usr/bin/dracut</code> or <code>/sbin/dracut</code></li>
+<li><strong>overlay kernel module</strong>: Modern Linux kernels include this by default</li>
+</ul>
+<h3 id="filesystem-requirements">Filesystem Requirements</h3>
+<ul>
+<li><code>/var</code> partition must be mountable during initramfs (before pivot_root)</li>
+<li>Supports ext4 and btrfs filesystems for <code>/var</code></li>
+</ul>
+<h2 id="building-images-with-pre-included-etc-overlay-module">Building Images with Pre-included etc-overlay Module</h2>
+<p>Container image authors can include the etc-overlay dracut module and pre-build the initramfs in their images. This speeds up installation and updates by skipping the initramfs regeneration step.</p>
+<h3 id="benefits">Benefits</h3>
+<ul>
+<li><strong>Faster installation</strong>: No need to run dracut during install/update</li>
+<li><strong>Smaller runtime footprint</strong>: No need to include dracut in the final image (if pre-built)</li>
+<li><strong>Reproducible builds</strong>: Initramfs is built once in CI, not on each target machine</li>
+<li><strong>Offline installation</strong>: No dracut execution required on the target system</li>
+</ul>
+<h3 id="option-1-install-nbc-package-recommended">Option 1: Install nbc Package (Recommended)</h3>
+<p>The simplest approach is to install the <code>nbc</code> package in your container image. This installs the dracut module and regenerates the initramfs automatically.</p>
+<pre><code class="language-dockerfile">FROM ghcr.io/frostyard/debian-bootc:trixie
+
+# Install nbc - this installs the dracut module to
+# /usr/lib/dracut/modules.d/95etc-overlay/
+RUN apt-get update &amp;&amp; apt-get install -y nbc
+
+# Regenerate initramfs for all kernels with etc-overlay included
+RUN for kver in /usr/lib/modules/*/; do \
+      kver=$(basename &quot;$kver&quot;); \
+      dracut --force --add etc-overlay \
+        /usr/lib/modules/$kver/initramfs.img $kver; \
+    done
+
+# Optional: Remove dracut to reduce image size (initramfs already built)
+# Only do this if you won't need to regenerate initramfs later
+# RUN apt-get remove -y dracut-core &amp;&amp; apt-get autoremove -y
+</code></pre>
+<h3 id="option-2-copy-dracut-module-manually">Option 2: Copy Dracut Module Manually</h3>
+<p>If you don't want to install the full nbc package, you can copy just the dracut module files:</p>
+<pre><code class="language-dockerfile">FROM ghcr.io/frostyard/debian-bootc:trixie
+
+# Copy the dracut module from nbc source or a built nbc image
+COPY --from=ghcr.io/frostyard/nbc:latest \
+  /usr/lib/dracut/modules.d/95etc-overlay \
+  /usr/lib/dracut/modules.d/95etc-overlay
+
+# Regenerate initramfs with the module
+RUN for kver in /usr/lib/modules/*/; do \
+      kver=$(basename &quot;$kver&quot;); \
+      dracut --force --add etc-overlay \
+        /usr/lib/modules/$kver/initramfs.img $kver; \
+    done
+</code></pre>
+<h3 id="option-3-build-module-from-source">Option 3: Build Module from Source</h3>
+<p>For maximum control, embed the module files directly in your Dockerfile:</p>
+<pre><code class="language-dockerfile">FROM ghcr.io/frostyard/debian-bootc:trixie
+
+# Create the dracut module directory
+RUN mkdir -p /usr/lib/dracut/modules.d/95etc-overlay
+
+# Create module-setup.sh
+RUN cat &gt; /usr/lib/dracut/modules.d/95etc-overlay/module-setup.sh &lt;&lt; 'EOF'
+#!/bin/bash
+check() { return 0; }
+depends() { echo &quot;rootfs-block&quot;; return 0; }
+install() {
+    inst_hook pre-pivot 50 &quot;$moddir/etc-overlay-mount.sh&quot;
+    inst_multiple mount umount mkdir
+}
+installkernel() { instmods overlay; }
+EOF
+
+# Create etc-overlay-mount.sh (the actual hook script)
+# See pkg/dracut/95etc-overlay/etc-overlay-mount.sh for full content
+COPY etc-overlay-mount.sh /usr/lib/dracut/modules.d/95etc-overlay/
+
+# Make scripts executable
+RUN chmod +x /usr/lib/dracut/modules.d/95etc-overlay/*.sh
+
+# Regenerate initramfs
+RUN for kver in /usr/lib/modules/*/; do \
+      kver=$(basename &quot;$kver&quot;); \
+      dracut --force --add etc-overlay \
+        /usr/lib/modules/$kver/initramfs.img $kver; \
+    done
+</code></pre>
+<h3 id="verifying-the-initramfs">Verifying the Initramfs</h3>
+<p>After building your image, verify the initramfs includes the etc-overlay module:</p>
+<pre><code class="language-bash"># Inside the container or on extracted image
+lsinitrd /usr/lib/modules/$(uname -r)/initramfs.img | grep etc-overlay
+
+# Should show something like:
+# usr/lib/dracut/hooks/pre-pivot/50etc-overlay-mount.sh
+</code></pre>
+<p>Or use <code>lsinitramfs</code> on Debian-based systems:</p>
+<pre><code class="language-bash">lsinitramfs /usr/lib/modules/*/initramfs.img | grep etc-overlay
+</code></pre>
+<h3 id="cicd-integration">CI/CD Integration</h3>
+<p>Example GitHub Actions workflow to verify initramfs:</p>
+<pre><code class="language-yaml">- name: Verify initramfs includes etc-overlay
+  run: |
+    # Extract and check the image
+    podman create --name temp ${{ env.IMAGE_NAME }}
+    podman cp temp:/usr/lib/modules - | tar -tf - | grep -q initramfs.img
+
+    # Check initramfs contents
+    podman run --rm ${{ env.IMAGE_NAME }} \
+      lsinitramfs /usr/lib/modules/*/initramfs.img | grep -q etc-overlay-mount.sh
+</code></pre>
+<h3 id="nbc-behavior-with-pre-built-initramfs">nbc Behavior with Pre-built Initramfs</h3>
+<p>When nbc detects that an initramfs already contains the etc-overlay module, it skips regeneration:</p>
+<pre><code>  Checking initramfs for etc-overlay module...
+    ✓ Initramfs for 6.12.0-1-amd64 already has etc-overlay module
+  All initramfs images already have etc-overlay module, skipping regeneration
+</code></pre>
+<p>This check uses <code>lsinitrd</code> (Fedora/RHEL) or <code>lsinitramfs</code> (Debian/Ubuntu) to inspect the initramfs contents without extracting them.</p>
+<h2 id="caveats-and-limitations">Caveats and Limitations</h2>
+<h3 id="read-only-root-filesystem">Read-Only Root Filesystem</h3>
+<p>The root filesystem is mounted read-only (<code>ro</code>) for immutability, similar to how bootc/ostree systems work. This provides:</p>
+<ul>
+<li><strong>Protection from accidental modifications</strong>: System files cannot be altered</li>
+<li><strong>Atomic updates</strong>: The entire root is replaced during A/B updates</li>
+<li><strong>Reproducibility</strong>: The root filesystem always matches the container image</li>
+</ul>
+<p>The <code>/etc</code> overlay allows user configuration to persist despite the read-only root.</p>
+<h4 id="how-the-overlay-works-with-read-only-root">How the Overlay Works with Read-Only Root</h4>
+<p>During early boot, the dracut etc-overlay module:</p>
+<ol>
+<li>Temporarily remounts root read-write</li>
+<li>Moves <code>/etc</code> to <code>/.etc.lower</code> (the overlay lower layer)</li>
+<li>Mounts the overlay on <code>/etc</code></li>
+<li>Remounts root back to read-only</li>
+</ol>
+<p>This ensures <code>/etc</code> modifications work while the rest of root stays immutable.</p>
+<h4 id="etcmachine-id-handling">/etc/machine-id Handling</h4>
+<p>For read-only root to work with systemd's first-boot detection:</p>
+<ul>
+<li>nbc pre-populates <code>/etc/machine-id</code> with "uninitialized" during installation</li>
+<li>On first boot, systemd detects this and generates a real machine-id</li>
+<li>The generated machine-id is written to the overlay upper layer (on <code>/var</code>)</li>
+<li>Subsequent boots read the machine-id from the overlay</li>
+</ul>
+<p><strong>Important</strong>: Container images should NOT have a populated <code>/etc/machine-id</code>. Use <code>nbc lint</code> to detect and fix this issue.</p>
+<h3 id="first-boot-behavior">First Boot Behavior</h3>
+<p>On first boot:</p>
+<ul>
+<li>Overlay directories are created automatically if missing</li>
+<li><code>/.etc.lower</code> contains the container's <code>/etc</code> (populated during install/update)</li>
+<li>System generates <code>/etc/machine-id</code> (written to overlay upper)</li>
+</ul>
+<h3 id="hidden-lower-layer">Hidden Lower Layer</h3>
+<p>The container's <code>/etc</code> at <code>/.etc.lower</code> is hidden by an empty tmpfs mount to:</p>
+<ul>
+<li>Prevent confusion from seeing duplicate <code>/etc</code> contents</li>
+<li>Avoid accidental modifications to the read-only layer</li>
+</ul>
+<p>To inspect the lower layer, unmount the hiding tmpfs:</p>
+<pre><code class="language-bash">umount /.etc.lower
+ls /.etc.lower/
+</code></pre>
+<h3 id="overlay-upper-layer-persistence">Overlay Upper Layer Persistence</h3>
+<p>The upper layer persists indefinitely. Old modifications are never automatically cleaned. To "reset" <code>/etc</code> to container defaults:</p>
+<pre><code class="language-bash"># WARNING: This removes ALL user /etc modifications
+rm -rf /var/lib/nbc/etc-overlay/upper/*
+rm -rf /var/lib/nbc/etc-overlay/work/*
+reboot
+</code></pre>
+<h3 id="files-that-may-cause-issues">Files That May Cause Issues</h3>
+<p>Some files in <code>/etc</code> have special considerations:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Consideration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/etc/machine-id</code></td>
+<td>Generated on first boot, persists in overlay</td>
+</tr>
+<tr>
+<td><code>/etc/fstab</code></td>
+<td>Created by nbc, user modifications persist</td>
+</tr>
+<tr>
+<td><code>/etc/passwd</code>, <code>/etc/group</code></td>
+<td>User additions persist, container updates may conflict</td>
+</tr>
+<tr>
+<td><code>/etc/shadow</code></td>
+<td>User password changes persist</td>
+</tr>
+<tr>
+<td><code>/etc/resolv.conf</code></td>
+<td>Network config, may be overwritten by NetworkManager</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ab-update-compatibility">A/B Update Compatibility</h3>
+<p>The overlay is shared between A and B root partitions via the common <code>/var</code> partition. This means:</p>
+<ul>
+<li>User modifications apply to whichever root is active</li>
+<li>Rolling back to previous root still sees current <code>/etc</code> modifications</li>
+<li>To truly roll back <code>/etc</code>, manually restore from pristine snapshot</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="check-if-system-booted-via-nbc">Check if System Booted via nbc</h3>
+<pre><code class="language-bash"># Check for runtime marker
+if [ -f /run/nbc-booted ]; then
+    echo &quot;nbc-managed boot detected&quot;
+else
+    echo &quot;Not an nbc-managed boot&quot;
+fi
+</code></pre>
+<p>If <code>/run/nbc-booted</code> doesn't exist but overlay is mounted, the dracut module may have partially failed.</p>
+<h3 id="check-if-overlay-is-active">Check if Overlay is Active</h3>
+<pre><code class="language-bash"># Should show overlay mount on /etc
+mount | grep 'overlay on /etc'
+
+# Check kernel parameters
+grep 'rd.etc.overlay' /proc/cmdline
+</code></pre>
+<h3 id="verify-overlay-directories">Verify Overlay Directories</h3>
+<pre><code class="language-bash"># Check upper layer content
+ls -la /var/lib/nbc/etc-overlay/upper/
+
+# Count user-modified files
+find /var/lib/nbc/etc-overlay/upper -type f | wc -l
+</code></pre>
+<h3 id="check-lower-layer-hidden">Check Lower Layer (Hidden)</h3>
+<pre><code class="language-bash"># Unmount the hiding tmpfs
+umount /.etc.lower
+
+# Inspect original /etc from container
+ls /.etc.lower/
+
+# Re-hide (or just reboot)
+mount -t tmpfs -o size=0,mode=000 tmpfs /.etc.lower
+</code></pre>
+<h3 id="overlay-not-mounting">Overlay Not Mounting</h3>
+<p>If <code>/etc</code> is not an overlay after boot:</p>
+<ol>
+<li>Check kernel cmdline: <code>cat /proc/cmdline | grep rd.etc.overlay</code></li>
+<li>Check dracut module: <code>ls /usr/lib/dracut/modules.d/95etc-overlay/</code></li>
+<li>Check initramfs includes module: <code>lsinitrd | grep etc-overlay</code></li>
+<li>Check dmesg for overlay errors: <code>dmesg | grep -i overlay</code></li>
+</ol>
+<h3 id="regenerate-initramfs">Regenerate Initramfs</h3>
+<p>If the dracut module is present but not in initramfs:</p>
+<pre><code class="language-bash"># Find kernel version
+KVER=$(uname -r)
+
+# Regenerate with etc-overlay module
+dracut --force --add etc-overlay /boot/initramfs-$KVER.img $KVER
+</code></pre>
+<h2 id="implementation-files">Implementation Files</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pkg/dracut/95etc-overlay/module-setup.sh</code></td>
+<td>Dracut module definition</td>
+</tr>
+<tr>
+<td><code>pkg/dracut/95etc-overlay/etc-overlay-mount.sh</code></td>
+<td>Pre-pivot hook script</td>
+</tr>
+<tr>
+<td><code>pkg/dracut.go</code></td>
+<td>Installs dracut module, regenerates initramfs</td>
+</tr>
+<tr>
+<td><code>pkg/etc_persistence.go</code></td>
+<td>Creates overlay directories, conflict detection</td>
+</tr>
+<tr>
+<td><code>pkg/bootloader.go</code></td>
+<td>Adds kernel parameters for overlay</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

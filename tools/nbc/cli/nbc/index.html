@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://frostyard.github.io/">
+        <link rel="canonical" href="https://frostyard.github.io/tools/nbc/cli/nbc/">
       
       
+        <link rel="prev" href="../../../../images/snow/reference/">
       
-        <link rel="next" href="atomic/">
+      
+        <link rel="next" href="../../../chairlift/reference/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>frostyard</title>
+        <title>CLI Reference - frostyard</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -46,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-frostyard" class="md-skip">
+        <a href="#nbc" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +82,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
+    <a href="../../../.." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              CLI Reference
             
           </span>
         </div>
@@ -178,7 +180,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
+    <a href="../../../.." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -193,37 +195,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -239,59 +214,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#atomic-linux-basics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Atomic Linux Basics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Images
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -350,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="atomic/" class="md-nav__link">
+      <a href="../../../../atomic/" class="md-nav__link">
         
   
   
@@ -479,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="images/snow/reference/" class="md-nav__link">
+      <a href="../../../../images/snow/reference/" class="md-nav__link">
         
   
   
@@ -519,18 +441,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -551,7 +475,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -566,18 +490,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
         
           
           <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
@@ -598,7 +524,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -613,10 +539,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="tools/nbc/cli/nbc/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -632,6 +583,74 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nbc
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nbc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synopsis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synopsis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SEE ALSO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -699,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/chairlift/reference/" class="md-nav__link">
+      <a href="../../../chairlift/reference/" class="md-nav__link">
         
   
   
@@ -752,8 +771,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -762,35 +779,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#atomic-linux-basics" class="md-nav__link">
+  <a href="#nbc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Atomic Linux Basics
+        nbc
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nbc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synopsis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synopsis
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Images
+        Options
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tools
+        SEE ALSO
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -811,20 +845,31 @@
 
 
 
-<h1 id="welcome-to-frostyard">Welcome to Frostyard</h1>
-<p>Frostyard builds secure, reproducible OCI-based Linux desktop and server images, plus tooling for post-install customization and lifecycle management.</p>
-<p>Explore each section for full documentation, usage, and development instructions.</p>
-<h2 id="atomic-linux-basics">Atomic Linux Basics</h2>
+  <h1>CLI Reference</h1>
+
+<h2 id="nbc">nbc</h2>
+<p>A bootc container installer for physical disks</p>
+<h3 id="synopsis">Synopsis</h3>
+<p>nbc is a tool for installing bootc compatible containers to physical disks.
+It automates the process of preparing disks and deploying bootable container images.</p>
+<h3 id="options">Options</h3>
+<pre><code>  -n, --dry-run   dry run mode (no actual changes)
+  -h, --help      help for nbc
+      --json      output in JSON format for machine-readable output
+  -v, --verbose   verbose output
+</code></pre>
+<h3 id="see-also">SEE ALSO</h3>
 <ul>
-<li><a href="atomic/">What is Atomic</a></li>
-</ul>
-<h2 id="images">Images</h2>
-<ul>
-<li><a href="images/snow/reference/">Snow</a></li>
-</ul>
-<h2 id="tools">Tools</h2>
-<ul>
-<li><a href="tools/chairlift/reference/">Chairlift</a></li>
+<li><a href="../nbc_cache/">nbc cache</a>  - Manage cached container images</li>
+<li><a href="../nbc_completion/">nbc completion</a>    - Generate the autocompletion script for the specified shell</li>
+<li><a href="../nbc_download/">nbc download</a>    - Download a container image to local cache</li>
+<li><a href="../nbc_install/">nbc install</a>  - Install a bootc container to a physical disk</li>
+<li><a href="../nbc_interactive-install/">nbc interactive-install</a>  - Interactively install a bootc container to a physical disk</li>
+<li><a href="../nbc_lint/">nbc lint</a>    - Check a container image for common issues</li>
+<li><a href="../nbc_list/">nbc list</a>    - List available disks</li>
+<li><a href="../nbc_status/">nbc status</a>    - Show current system status</li>
+<li><a href="../nbc_update/">nbc update</a>    - Update system to a new container image using A/B partitions</li>
+<li><a href="../nbc_validate/">nbc validate</a>    - Validate a disk for bootc installation</li>
 </ul>
 
 
@@ -875,10 +920,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

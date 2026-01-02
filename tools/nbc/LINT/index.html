@@ -8,26 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://frostyard.github.io/">
+        <link rel="canonical" href="https://frostyard.github.io/tools/nbc/LINT/">
       
       
-      
-        <link rel="next" href="atomic/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>frostyard</title>
+        <title>Container Image Linting - frostyard</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -46,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-frostyard" class="md-skip">
+        <a href="#container-image-linting" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
+    <a href="../../.." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Container Image Linting
             
           </span>
         </div>
@@ -178,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
+    <a href="../../.." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -193,37 +191,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -239,59 +210,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#atomic-linux-basics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Atomic Linux Basics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Images
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -350,7 +268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="atomic/" class="md-nav__link">
+      <a href="../../../atomic/" class="md-nav__link">
         
   
   
@@ -479,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="images/snow/reference/" class="md-nav__link">
+      <a href="../../../images/snow/reference/" class="md-nav__link">
         
   
   
@@ -616,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/nbc/cli/nbc/" class="md-nav__link">
+      <a href="../cli/nbc/" class="md-nav__link">
         
   
   
@@ -699,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/chairlift/reference/" class="md-nav__link">
+      <a href="../../chairlift/reference/" class="md-nav__link">
         
   
   
@@ -762,10 +680,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#atomic-linux-basics" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Atomic Linux Basics
+        Usage
       
     </span>
   </a>
@@ -773,10 +691,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
+  <a href="#exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Images
+        Exit Codes
       
     </span>
   </a>
@@ -784,13 +702,119 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
+  <a href="#lint-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tools
+        Lint Checks
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Lint Checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-host-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ssh-host-keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machine-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        machine-id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random-seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        random-seed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety Checks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Safety Checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-environment-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Environment Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-new-lint-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding New Lint Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dockerfile Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -811,21 +835,142 @@
 
 
 
-<h1 id="welcome-to-frostyard">Welcome to Frostyard</h1>
-<p>Frostyard builds secure, reproducible OCI-based Linux desktop and server images, plus tooling for post-install customization and lifecycle management.</p>
-<p>Explore each section for full documentation, usage, and development instructions.</p>
-<h2 id="atomic-linux-basics">Atomic Linux Basics</h2>
+<h1 id="container-image-linting">Container Image Linting</h1>
+<p>The <code>nbc lint</code> command checks container images for common issues that cause problems when installed with nbc. This document describes each lint check, why it matters, and how issues are remediated.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-bash"># Lint a remote container image
+nbc lint ghcr.io/myorg/myimage:latest
+
+# Lint with JSON output (for CI/CD)
+nbc lint --json docker.io/library/fedora:latest
+
+# Lint the current filesystem (inside a container build)
+nbc lint --local
+
+# Lint and automatically fix issues (inside a container only)
+nbc lint --local --fix
+</code></pre>
+<h2 id="exit-codes">Exit Codes</h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>No errors found (warnings are allowed)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>One or more errors found</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lint-checks">Lint Checks</h2>
+<h3 id="ssh-host-keys">ssh-host-keys</h3>
+<p><strong>Severity:</strong> Error</p>
+<p><strong>What it checks:</strong> Detects SSH host keys (<code>/etc/ssh/ssh_host_*_key</code> and <code>/etc/ssh/ssh_host_*_key.pub</code>) baked into the container image.</p>
+<p><strong>Why it matters:</strong> SSH host keys are used to uniquely identify a machine. If they're baked into a container image:</p>
 <ul>
-<li><a href="atomic/">What is Atomic</a></li>
+<li>Every system installed from that image will have the same host keys</li>
+<li>This is a security vulnerability (enables MITM attacks)</li>
+<li>SSH clients will show warnings when connecting to different hosts with the same keys</li>
 </ul>
-<h2 id="images">Images</h2>
+<p><strong>Auto-fix behavior:</strong> Removes all SSH host key files. They will be regenerated automatically at first boot by <code>sshd-keygen.service</code> or equivalent.</p>
+<p><strong>Manual fix:</strong></p>
+<pre><code class="language-dockerfile">RUN rm -f /etc/ssh/ssh_host_*
+</code></pre>
+<hr />
+<h3 id="machine-id">machine-id</h3>
+<p><strong>Severity:</strong> Error</p>
+<p><strong>What it checks:</strong> Detects a non-empty <code>/etc/machine-id</code> that contains a value other than "uninitialized".</p>
+<p><strong>Why it matters:</strong> The machine-id is a unique identifier for each system. If baked into an image:</p>
 <ul>
-<li><a href="images/snow/reference/">Snow</a></li>
+<li>Every system will have the same machine-id</li>
+<li>This breaks systemd's assumptions about unique system identity</li>
+<li>Can cause issues with logging, D-Bus, and other systemd services</li>
+<li>May cause problems with software licensing and telemetry</li>
 </ul>
-<h2 id="tools">Tools</h2>
+<p><strong>Auto-fix behavior:</strong> Truncates <code>/etc/machine-id</code> to zero length. systemd will generate a new unique ID at first boot.</p>
+<p><strong>Manual fix:</strong></p>
+<pre><code class="language-dockerfile">RUN truncate -s 0 /etc/machine-id
+# Or alternatively:
+RUN echo &quot;uninitialized&quot; &gt; /etc/machine-id
+</code></pre>
+<hr />
+<h3 id="random-seed">random-seed</h3>
+<p><strong>Severity:</strong> Warning</p>
+<p><strong>What it checks:</strong> Detects random seed files at:</p>
 <ul>
-<li><a href="tools/chairlift/reference/">Chairlift</a></li>
+<li><code>/var/lib/systemd/random-seed</code></li>
+<li><code>/var/lib/random-seed</code> (legacy location)</li>
 </ul>
+<p><strong>Why it matters:</strong> Random seed files contain entropy used to initialize the random number generator. If shared across systems:</p>
+<ul>
+<li>Reduces the entropy available at boot</li>
+<li>Could potentially weaken cryptographic operations</li>
+<li>Not a critical security issue, but not ideal</li>
+</ul>
+<p><strong>Auto-fix behavior:</strong> Removes the random seed files. They will be regenerated at boot.</p>
+<p><strong>Manual fix:</strong></p>
+<pre><code class="language-dockerfile">RUN rm -f /var/lib/systemd/random-seed /var/lib/random-seed
+</code></pre>
+<hr />
+<h2 id="safety-checks">Safety Checks</h2>
+<h3 id="container-environment-detection">Container Environment Detection</h3>
+<p>When using <code>--fix</code>, the lint command verifies it's running inside a container by checking for:</p>
+<ul>
+<li><code>/.dockerenv</code> (Docker)</li>
+<li><code>/run/.containerenv</code> (Podman)</li>
+</ul>
+<p>This prevents accidentally running <code>--fix</code> on a host system, which could remove important files.</p>
+<h2 id="adding-new-lint-checks">Adding New Lint Checks</h2>
+<p>When adding a new lint check to <code>pkg/lint.go</code>:</p>
+<ol>
+<li>Create the check function following the <code>LintCheck</code> signature</li>
+<li>Register it in <code>RegisterDefaultChecks()</code></li>
+<li><strong>Update this document</strong> with:</li>
+<li>Check name and severity</li>
+<li>What it checks</li>
+<li>Why it matters</li>
+<li>Auto-fix behavior</li>
+<li>Manual fix instructions</li>
+</ol>
+<p>See the documentation in <code>pkg/lint.go</code> for detailed implementation instructions.</p>
+<h2 id="cicd-integration">CI/CD Integration</h2>
+<p>Use JSON output for machine-readable results:</p>
+<pre><code class="language-bash">nbc lint --json ghcr.io/myorg/myimage:latest
+</code></pre>
+<p>Example JSON output:</p>
+<pre><code class="language-json">{
+  &quot;image&quot;: &quot;ghcr.io/myorg/myimage:latest&quot;,
+  &quot;success&quot;: true,
+  &quot;issues&quot;: [
+    {
+      &quot;check&quot;: &quot;ssh-host-keys&quot;,
+      &quot;severity&quot;: &quot;error&quot;,
+      &quot;message&quot;: &quot;SSH host key found in image&quot;,
+      &quot;path&quot;: &quot;/etc/ssh/ssh_host_rsa_key&quot;
+    }
+  ],
+  &quot;error_count&quot;: 1,
+  &quot;warning_count&quot;: 0
+}
+</code></pre>
+<h3 id="dockerfile-integration">Dockerfile Integration</h3>
+<p>Add lint as the final step in your Dockerfile:</p>
+<pre><code class="language-dockerfile"># Install nbc (adjust for your base image)
+COPY --from=ghcr.io/frostyard/nbc:latest /nbc /usr/local/bin/nbc
+
+# Lint and fix issues
+RUN nbc lint --local --fix
+</code></pre>
+<p>Or just lint without fixing (fail the build if issues exist):</p>
+<pre><code class="language-dockerfile">RUN nbc lint --local
+</code></pre>
 
 
 
@@ -875,10 +1020,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
