@@ -1,11 +1,18 @@
 site_name: "frostyard"
 site_url: https://frostyard.github.io/
+
 theme:
   name: material
-
+  palette:
+    scheme: slate
+    primary: blue
+  features:
+    - navigation.tabs
+    - navigation.indexes
 plugins:
   - monorepo
   - search
+  - blog
 
 nav:
   - Home: index.md
@@ -16,3 +23,4 @@ nav:
   - Tools:
     - nbc: '!include ./nbc/mkdocs.yml'
     - chairlift: '!include ./chairlift/mkdocs.yml'
+  - Blog: blog/index.md
