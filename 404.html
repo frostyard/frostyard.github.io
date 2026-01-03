@@ -25,6 +25,9 @@
     
       <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -51,7 +54,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -67,9 +75,7 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="/." title="frostyard" class="md-header__button md-logo" aria-label="frostyard" data-md-component="logo">
       
@@ -98,8 +104,8 @@
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -153,6 +159,139 @@
       
         
           
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="/atomic/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Atomic Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="/images/snow/reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Images
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="/tools/nbc/cli/nbc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/blog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FROST Yard Blog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -166,8 +305,10 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="/." title="frostyard" class="md-nav__button md-logo" aria-label="frostyard" data-md-component="logo">
       
@@ -215,7 +356,14 @@
   
     
     
+      
+        
+      
     
+    
+    
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -297,7 +445,14 @@
   
     
     
+      
+        
+      
     
+    
+    
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -344,7 +499,14 @@
   
     
     
+      
+        
+      
     
+    
+    
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -434,7 +596,16 @@
   
     
     
+      
+        
+      
+        
+      
     
+    
+    
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -481,7 +652,14 @@
   
     
     
+      
+        
+      
     
+    
+    
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -564,7 +742,14 @@
   
     
     
+      
+        
+      
     
+    
+    
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -646,6 +831,35 @@
   
 
     
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="/blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FROST Yard Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -713,7 +927,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": [], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.indexes"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
