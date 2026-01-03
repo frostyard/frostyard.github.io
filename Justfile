@@ -86,4 +86,4 @@ setup: submodules-init venv-setup
 clean: build-clean venv-clean
 
 publish: build
-    mkdocs gh-deploy --remote-branch pages
+    {{ venv_python }} -m mkdocs gh-deploy --remote-branch pages
