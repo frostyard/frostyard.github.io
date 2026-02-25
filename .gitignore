@@ -1,2 +1,7 @@
-site
-.venv
+dist/
+.venv/
+*.exe
+.DS_Store
+node_modules/
+/tailwindcss
+/pagefind

@@ -1,2 +1,0 @@
-# FROST Yard Blog
-
