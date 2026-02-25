@@ -46,6 +46,16 @@ func Build(cfg Config) error {
 		return fmt.Errorf("copying static assets: %w", err)
 	}
 
+	// Generate sitemap
+	if err := generateSitemap(site, cfg.OutputDir); err != nil {
+		return fmt.Errorf("generating sitemap: %w", err)
+	}
+
+	// Generate RSS feed
+	if err := generateRSS(site, cfg.OutputDir); err != nil {
+		return fmt.Errorf("generating RSS feed: %w", err)
+	}
+
 	fmt.Printf("Build complete: %s\n", cfg.OutputDir)
 	return nil
 }
