@@ -1,0 +1,62 @@
+package layouts
+
+import "github.com/frostyard/site/templates/components"
+
+type PageMeta struct {
+	Title       string
+	Description string
+	Path        string
+	SiteName    string
+}
+
+templ Base(meta PageMeta) {
+	<!DOCTYPE html>
+	<html lang="en" class="dark">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			if meta.Title != "" {
+				<title>{ meta.Title } — { meta.SiteName }</title>
+			} else {
+				<title>{ meta.SiteName }</title>
+			}
+			if meta.Description != "" {
+				<meta name="description" content={ meta.Description }/>
+			}
+			<link rel="stylesheet" href="/css/style.css"/>
+			<link rel="stylesheet" href="/pagefind/pagefind-ui.css"/>
+			<script src="/pagefind/pagefind-ui.js"></script>
+		</head>
+		<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+			<!-- Frost gradient line -->
+			<div class="h-0.5 bg-gradient-to-r from-sky-400 via-blue-400 to-sky-500"></div>
+			@components.Nav(meta.SiteName, meta.Path)
+			<main class="flex-1">
+				{ children... }
+			</main>
+			@components.Footer()
+			<!-- Dark mode toggle script -->
+			<script>
+				function toggleDarkMode() {
+					const html = document.documentElement;
+					if (html.classList.contains("dark")) {
+						html.classList.remove("dark");
+						localStorage.setItem("theme", "light");
+					} else {
+						html.classList.add("dark");
+						localStorage.setItem("theme", "dark");
+					}
+				}
+
+				(function() {
+					const theme = localStorage.getItem("theme");
+					if (theme === "light") {
+						document.documentElement.classList.remove("dark");
+					} else {
+						document.documentElement.classList.add("dark");
+					}
+				})();
+			</script>
+		</body>
+	</html>
+}

@@ -1,0 +1,15 @@
+package layouts
+
+import "github.com/frostyard/site/templates/components"
+
+templ Docs(meta PageMeta, sidebar []components.SidebarSection, toc []components.TOCHeading) {
+	@Base(meta) {
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex gap-8">
+			@components.Sidebar(sidebar, meta.Path)
+			<article class="flex-1 min-w-0 prose prose-invert prose-slate prose-headings:scroll-mt-20 prose-a:text-sky-400 prose-code:text-sky-300 max-w-none">
+				{ children... }
+			</article>
+			@components.TOC(toc)
+		</div>
+	}
+}

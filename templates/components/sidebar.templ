@@ -1,0 +1,70 @@
+package components
+
+type SidebarSection struct {
+	Title       string
+	Path        string
+	Pages       []SidebarLink
+	Subsections []SidebarSection
+}
+
+type SidebarLink struct {
+	Title string
+	Path  string
+}
+
+templ Sidebar(sections []SidebarSection, currentPath string) {
+	<aside class="hidden lg:block w-64 shrink-0">
+		<nav class="sticky top-20 overflow-y-auto max-h-[calc(100vh-5rem)] py-8 pr-4">
+			for _, section := range sections {
+				@sidebarSection(section, currentPath)
+			}
+		</nav>
+	</aside>
+}
+
+templ sidebarSection(section SidebarSection, currentPath string) {
+	<div class="mb-6">
+		if section.Path != "" {
+			<a
+				href={ templ.SafeURL(section.Path) }
+				class="block text-sm font-semibold text-slate-200 hover:text-white mb-2"
+			>
+				{ section.Title }
+			</a>
+		} else {
+			<h4 class="text-sm font-semibold text-slate-200 mb-2">
+				{ section.Title }
+			</h4>
+		}
+		if len(section.Pages) > 0 {
+			<ul class="border-l border-slate-700 ml-1 space-y-1">
+				for _, page := range section.Pages {
+					<li>
+						if currentPath == page.Path {
+							<a
+								href={ templ.SafeURL(page.Path) }
+								class="block pl-4 py-1 text-sm text-sky-400 border-l-2 border-sky-400 -ml-px font-medium"
+							>
+								{ page.Title }
+							</a>
+						} else {
+							<a
+								href={ templ.SafeURL(page.Path) }
+								class="block pl-4 py-1 text-sm text-slate-400 hover:text-slate-200 border-l-2 border-transparent hover:border-slate-500 -ml-px transition-colors"
+							>
+								{ page.Title }
+							</a>
+						}
+					</li>
+				}
+			</ul>
+		}
+		if len(section.Subsections) > 0 {
+			<div class="ml-3 mt-2">
+				for _, sub := range section.Subsections {
+					@sidebarSection(sub, currentPath)
+				}
+			</div>
+		}
+	</div>
+}
