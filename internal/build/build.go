@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
 	"github.com/frostyard/site/internal/content"
 	"github.com/frostyard/site/internal/render"
+	"github.com/frostyard/site/templates/pages"
 )
 
 // Config holds the build configuration.
@@ -41,9 +43,19 @@ func Build(cfg Config) error {
 		}
 	}
 
+	// Render static templ pages (Home, Downloads, Community)
+	if err := renderStaticPages(cfg.OutputDir); err != nil {
+		return fmt.Errorf("rendering static pages: %w", err)
+	}
+
 	// Copy static assets
 	if err := copyDir(cfg.StaticDir, cfg.OutputDir); err != nil {
 		return fmt.Errorf("copying static assets: %w", err)
+	}
+
+	// Run Tailwind CSS
+	if err := runTailwind(cfg.Root, cfg.OutputDir); err != nil {
+		return fmt.Errorf("running tailwind: %w", err)
 	}
 
 	// Generate sitemap
@@ -121,6 +133,54 @@ func copyDir(src, dst string) error {
 
 		return copyFile(path, destPath)
 	})
+}
+
+// runTailwind executes the tailwindcss CLI to generate the CSS output.
+// If the tailwindcss binary is not found, it prints a warning and skips.
+func runTailwind(root, outputDir string) error {
+	cssDir := filepath.Join(outputDir, "css")
+	if err := os.MkdirAll(cssDir, 0o755); err != nil {
+		return err
+	}
+
+	// Try to find tailwindcss binary
+	twBin := filepath.Join(root, "tailwindcss")
+	if _, err := os.Stat(twBin); os.IsNotExist(err) {
+		fmt.Println("Warning: tailwindcss binary not found, skipping CSS generation")
+		return nil
+	}
+
+	cmd := exec.Command(twBin, "-i", filepath.Join(root, "input.css"), "-o", filepath.Join(cssDir, "style.css"), "--minify")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
+}
+
+// renderStaticPages renders the templ-only static pages (Home, Downloads, Community).
+func renderStaticPages(outputDir string) error {
+	staticPages := map[string]func() (string, error){
+		"/":            func() (string, error) { return render.RenderStaticPage(pages.Home()) },
+		"/downloads/":  func() (string, error) { return render.RenderStaticPage(pages.Downloads()) },
+		"/community/":  func() (string, error) { return render.RenderStaticPage(pages.Community()) },
+	}
+
+	for path, renderFn := range staticPages {
+		html, err := renderFn()
+		if err != nil {
+			return fmt.Errorf("rendering static page %s: %w", path, err)
+		}
+
+		outPath := filepath.Join(outputDir, path, "index.html")
+		if err := os.MkdirAll(filepath.Dir(outPath), 0o755); err != nil {
+			return fmt.Errorf("creating directory for %s: %w", outPath, err)
+		}
+
+		if err := os.WriteFile(outPath, []byte(html), 0o644); err != nil {
+			return fmt.Errorf("writing %s: %w", outPath, err)
+		}
+	}
+
+	return nil
 }
 
 // copyFile copies a single file from src to dst.

@@ -1,0 +1,22 @@
+package pages
+
+import "github.com/frostyard/site/templates/layouts"
+
+templ Community() {
+	@layouts.Base(layouts.PageMeta{Title: "Community", SiteName: "Frostyard", Path: "/community/"}) {
+		<div class="max-w-4xl mx-auto px-4 py-12">
+			<h1 class="text-3xl font-bold text-slate-100 mb-8">Community</h1>
+			<div class="space-y-6">
+				<div class="p-6 rounded-lg bg-slate-800/50 border border-slate-700">
+					<h2 class="text-xl font-semibold text-slate-100 mb-2">GitHub</h2>
+					<p class="text-slate-400 mb-3">Report issues, contribute code, and browse source.</p>
+					<a href="https://github.com/frostyard" class="text-sky-400 hover:text-sky-300">github.com/frostyard →</a>
+				</div>
+				<div class="p-6 rounded-lg bg-slate-800/50 border border-slate-700">
+					<h2 class="text-xl font-semibold text-slate-100 mb-2">Contributing</h2>
+					<p class="text-slate-400">Frostyard is open source. Contributions are welcome — check the README in each project repo for contribution guidelines.</p>
+				</div>
+			</div>
+		</div>
+	}
+}

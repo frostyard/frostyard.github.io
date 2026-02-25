@@ -58,6 +58,15 @@ func RenderLandingPage(pageContent template.HTML) (string, error) {
 	return renderWithChildren(wrapper, rawContent)
 }
 
+// RenderStaticPage renders a standalone templ component (no children needed) to HTML string.
+func RenderStaticPage(component templ.Component) (string, error) {
+	var buf bytes.Buffer
+	if err := component.Render(context.Background(), &buf); err != nil {
+		return "", err
+	}
+	return buf.String(), nil
+}
+
 // renderWithChildren renders a templ component with children using templ.WithChildren context.
 func renderWithChildren(wrapper templ.Component, child templ.Component) (string, error) {
 	var buf bytes.Buffer

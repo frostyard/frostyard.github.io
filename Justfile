@@ -1,89 +1,39 @@
-# Frostyard Site Justfile
-# MkDocs documentation site with git submodules
-
-set dotenv-load := true
-
-python := "/home/linuxbrew/.linuxbrew/bin/python3"
-venv_dir := ".venv"
-venv_python := venv_dir / "bin/python"
-venv_pip := venv_dir / "bin/pip"
+# Frostyard Site
+# Go static site generator with Templ + Tailwind
 
 default:
     just --list --unsorted
 
-# === Virtual Environment ===
-
-# Create the virtual environment
-venv-create:
-    {{ python }} -m venv {{ venv_dir }}
-    @echo "Virtual environment created. Run 'source {{ venv_dir }}/bin/activate' to activate."
-
-# Install dependencies into the virtual environment
-venv-install:
-    {{ venv_pip }} install -r requirements.txt
-
-# Recreate venv and install dependencies
-venv-setup: venv-create venv-install
-
-# Remove the virtual environment
-venv-clean:
-    rm -rf {{ venv_dir }}
-
-# === MkDocs Site ===
-
-# Serve the site locally with live reload
-serve:
-    {{ venv_python }} -m mkdocs serve
-
-# Serve on all interfaces (useful for containers/VMs)
-serve-public:
-    {{ venv_python }} -m mkdocs serve -a 0.0.0.0:8000
-
-# Build the static site
+# Generate templ files and build the static site
 build:
-    {{ venv_python }} -m mkdocs build
+    templ generate
+    go run ./cmd/frostyard build
 
-# Build with strict mode (treat warnings as errors)
-build-strict:
-    {{ venv_python }} -m mkdocs build --strict
+# Start dev server with live reload
+serve:
+    templ generate
+    go run ./cmd/frostyard serve
 
-# Clean the build output
-build-clean:
-    rm -rf site
+# Run all tests
+test:
+    go test ./... -v
 
-# === Git Submodules ===
+# Generate templ Go code
+generate:
+    templ generate
 
-# Initialize all submodules
-submodules-init:
-    git submodule update --init --recursive
+# Create a new docs page
+new-page path:
+    go run ./cmd/frostyard new page {{ path }}
 
-# Update all submodules to latest commit on their tracked branch
-submodules-update:
-    git submodule update --remote --merge
+# Create a new blog post
+new-post title:
+    go run ./cmd/frostyard new post "{{ title }}"
 
-# Pull latest changes for all submodules
-submodules-pull:
-    git submodule foreach git pull origin main
+# Run Pagefind to build search index (post-build)
+search-index:
+    pagefind --site dist
 
-# Show status of all submodules
-submodules-status:
-    git submodule status
-
-# Sync submodule URLs from .gitmodules
-submodules-sync:
-    git submodule sync --recursive
-
-# Deinitialize all submodules (removes working tree)
-submodules-deinit:
-    git submodule deinit --all -f
-
-# === Combined Targets ===
-
-# Full setup: init submodules, create venv, install deps
-setup: submodules-init venv-setup
-
-# Clean everything
-clean: build-clean venv-clean
-
-publish: build
-    {{ venv_python }} -m mkdocs gh-deploy --remote-branch pages
+# Clean build artifacts
+clean:
+    rm -rf dist

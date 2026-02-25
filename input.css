@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@source "../templates/**/*.templ";
+@source "../dist/**/*.html";
+
+@theme {
+  --color-frost-50: #f0f9ff;
+  --color-frost-100: #e0f2fe;
+  --color-frost-200: #bae6fd;
+  --color-frost-300: #7dd3fc;
+  --color-frost-400: #38bdf8;
+  --color-frost-500: #0ea5e9;
+}
