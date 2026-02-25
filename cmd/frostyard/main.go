@@ -10,6 +10,7 @@ import (
 	"unicode"
 
 	"github.com/frostyard/site/internal/build"
+	"github.com/frostyard/site/internal/server"
 )
 
 func main() {
@@ -40,7 +41,21 @@ func main() {
 		}
 
 	case "serve":
-		fmt.Println("Server not yet implemented")
+		addr := ":3000"
+		if len(os.Args) > 2 {
+			addr = os.Args[2]
+		}
+		cfg := server.Config{
+			ContentDir: filepath.Join(root, "content"),
+			StaticDir:  filepath.Join(root, "static"),
+			OutputDir:  filepath.Join(root, "dist"),
+			Addr:       addr,
+			Root:       root,
+		}
+		if err := server.Serve(cfg); err != nil {
+			fmt.Fprintf(os.Stderr, "Server failed: %v\n", err)
+			os.Exit(1)
+		}
 
 	case "new":
 		if len(os.Args) < 3 {
