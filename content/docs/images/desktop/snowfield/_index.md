@@ -2,7 +2,7 @@
 title: "Snowfield"
 description: "Desktop Debian"
 weight: 2
-icon: "server"
+icon: "computer-desktop"
 ---
 
 ## SNOWField is for Surface Hardware

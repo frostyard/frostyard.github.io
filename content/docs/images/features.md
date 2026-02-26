@@ -1,5 +1,5 @@
 ---
-title: "Features"
+title: "Image Features"
 description: "Frostyard Atomic Linux Images"
 weight: 2
 icon: "server"

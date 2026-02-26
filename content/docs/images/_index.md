@@ -2,7 +2,7 @@
 title: "Images"
 description: "Frostyard Atomic Linux Images"
 weight: 2
-icon: "server"
+icon: "cloud"
 ---
 
 ## There's a Frostyard Image for Everyone

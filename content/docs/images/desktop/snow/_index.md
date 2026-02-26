@@ -2,7 +2,7 @@
 title: "Snow"
 description: "Desktop Debian"
 weight: 1
-icon: "server"
+icon: "computer-desktop"
 ---
 
 ## SNOW is Not Only Windows
