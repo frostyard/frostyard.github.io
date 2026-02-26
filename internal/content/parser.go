@@ -8,7 +8,6 @@ import (
 	"strings"
 	"time"
 
-	chromahtml "github.com/alecthomas/chroma/v2/formatters/html"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/ast"
 	"github.com/yuin/goldmark/extension"
@@ -139,10 +138,6 @@ func renderMarkdown(source []byte) (string, []Heading, error) {
 			extension.GFM,
 			highlighting.NewHighlighting(
 				highlighting.WithStyle("dracula"),
-				highlighting.WithCSSWriter(nil),
-				highlighting.WithFormatOptions(
-					chromahtml.WithClasses(true),
-				),
 			),
 		),
 		goldmark.WithParserOptions(

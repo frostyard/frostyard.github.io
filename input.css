@@ -15,6 +15,11 @@
   --color-frost-500: #0ea5e9;
 }
 
+/* Prevent prose-code color from overriding syntax highlighting inside pre blocks */
+.prose pre code {
+  color: inherit;
+}
+
 /* Pagefind search UI overrides */
 .pagefind-ui {
   --pagefind-ui-scale: 0.8;
