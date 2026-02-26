@@ -68,8 +68,36 @@ func Build(cfg Config) error {
 		return fmt.Errorf("generating RSS feed: %w", err)
 	}
 
+	// Run Pagefind to generate search index (optional)
+	if err := runPagefind(cfg.OutputDir); err != nil {
+		return fmt.Errorf("running pagefind: %w", err)
+	}
+
 	fmt.Printf("Build complete: %s\n", cfg.OutputDir)
 	return nil
+}
+
+// runPagefind runs pagefind to generate the search index for the built site.
+// If pagefind is not available (neither in PATH nor via npx), it prints a note and skips.
+func runPagefind(outputDir string) error {
+	// Try pagefind in PATH first
+	pagefindBin, err := exec.LookPath("pagefind")
+	if err != nil {
+		// Try npx pagefind
+		_, npxErr := exec.LookPath("npx")
+		if npxErr != nil {
+			fmt.Println("Note: pagefind not found, skipping search index generation")
+			return nil
+		}
+		cmd := exec.Command("npx", "pagefind", "--site", outputDir)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		return cmd.Run()
+	}
+	cmd := exec.Command(pagefindBin, "--site", outputDir)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	return cmd.Run()
 }
 
 // renderPage renders a single page to HTML and writes it to the output directory.
