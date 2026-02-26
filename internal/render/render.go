@@ -91,6 +91,7 @@ func convertSection(sec *content.Section) components.SidebarSection {
 	ss := components.SidebarSection{
 		Title: sec.Title,
 		Path:  sec.Path,
+		Icon:  sec.Icon,
 	}
 
 	for _, p := range sec.Pages {
