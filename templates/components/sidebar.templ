@@ -28,12 +28,18 @@ templ sidebarSection(section SidebarSection, currentPath string) {
 		if section.Path != "" {
 			<a
 				href={ templ.SafeURL(section.Path) }
-				class="block text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white mb-2"
+				class="flex items-center gap-1.5 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white mb-2"
 			>
+				if section.Icon != "" {
+					@Icon(section.Icon)
+				}
 				{ section.Title }
 			</a>
 		} else {
-			<h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">
+			<h4 class="flex items-center gap-1.5 text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">
+				if section.Icon != "" {
+					@Icon(section.Icon)
+				}
 				{ section.Title }
 			</h4>
 		}
