@@ -1,8 +1,18 @@
 ---
 title: "Images"
-description: "Frostyard bootc container images"
+description: "Frostyard Atomic Linux Images"
 weight: 2
 icon: "server"
 ---
 
-Frostyard provides pre-built bootc container images for various use cases.
+## There's a Frostyard Image for Everyone
+
+All Frostyard images are built from Debian 13 (Trixie) for stability and convenience.
+
+### Desktop Images
+
+Our desktop images feature Gnome.
+
+### Server Images
+
+Our server images ...
