@@ -13,3 +13,55 @@
   --color-frost-400: #38bdf8;
   --color-frost-500: #0ea5e9;
 }
+
+/* Pagefind search UI overrides */
+.pagefind-ui {
+  --pagefind-ui-scale: 0.8;
+  --pagefind-ui-primary: #0ea5e9;
+  --pagefind-ui-text: #334155;
+  --pagefind-ui-background: #ffffff;
+  --pagefind-ui-border: #e2e8f0;
+  --pagefind-ui-tag: #f1f5f9;
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-font: inherit;
+}
+
+.dark .pagefind-ui {
+  --pagefind-ui-text: #e2e8f0;
+  --pagefind-ui-background: #0f172a;
+  --pagefind-ui-border: #334155;
+  --pagefind-ui-tag: #1e293b;
+}
+
+.pagefind-ui .pagefind-ui__result {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.pagefind-ui .pagefind-ui__result:hover {
+  background: #f1f5f9;
+}
+
+.dark .pagefind-ui .pagefind-ui__result:hover {
+  background: #1e293b;
+}
+
+.pagefind-ui .pagefind-ui__results-area {
+  margin-top: 0.5rem;
+}
+
+/* Make the search results dropdown opaque with proper background */
+.pagefind-ui .pagefind-ui__drawer {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+  padding: 0.5rem;
+}
+
+.dark .pagefind-ui .pagefind-ui__drawer {
+  background: #0f172a;
+  border-color: #334155;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.5);
+}
