@@ -5,22 +5,22 @@ import "github.com/frostyard/site/templates/layouts"
 templ Downloads() {
 	@layouts.Base(layouts.PageMeta{Title: "Downloads", SiteName: "Frostyard", Path: "/downloads/"}) {
 		<div class="max-w-4xl mx-auto px-4 py-12">
-			<h1 class="text-3xl font-bold text-slate-100 mb-8">Downloads</h1>
+			<h1 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Downloads</h1>
 			<div class="space-y-6">
-				<div class="p-6 rounded-lg bg-slate-800/50 border border-slate-700">
-					<h2 class="text-xl font-semibold text-slate-100 mb-2">Container Images</h2>
-					<p class="text-slate-400 mb-4">Pull Frostyard images directly from the container registry.</p>
-					<code class="block bg-slate-900 p-3 rounded text-sm text-sky-400">podman pull ghcr.io/frostyard/snow:latest</code>
+				<div class="p-6 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+					<h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Container Images</h2>
+					<p class="text-slate-600 dark:text-slate-400 mb-4">Pull Frostyard images directly from the container registry.</p>
+					<code class="block bg-slate-100 dark:bg-slate-900 p-3 rounded text-sm text-sky-700 dark:text-sky-400">podman pull ghcr.io/frostyard/snow:latest</code>
 				</div>
-				<div class="p-6 rounded-lg bg-slate-800/50 border border-slate-700">
-					<h2 class="text-xl font-semibold text-slate-100 mb-2">nbc (bootc installer)</h2>
-					<p class="text-slate-400 mb-4">Install bootc container images to disk.</p>
-					<a href="https://github.com/frostyard/nbc/releases" class="text-sky-400 hover:text-sky-300">View releases on GitHub →</a>
+				<div class="p-6 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+					<h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">nbc (bootc installer)</h2>
+					<p class="text-slate-600 dark:text-slate-400 mb-4">Install bootc container images to disk.</p>
+					<a href="https://github.com/frostyard/nbc/releases" class="text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300">View releases on GitHub →</a>
 				</div>
-				<div class="p-6 rounded-lg bg-slate-800/50 border border-slate-700">
-					<h2 class="text-xl font-semibold text-slate-100 mb-2">Chairlift</h2>
-					<p class="text-slate-400 mb-4">System management tool for SNOW Linux.</p>
-					<a href="https://github.com/frostyard/chairlift/releases" class="text-sky-400 hover:text-sky-300">View releases on GitHub →</a>
+				<div class="p-6 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+					<h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Chairlift</h2>
+					<p class="text-slate-600 dark:text-slate-400 mb-4">System management tool for SNOW Linux.</p>
+					<a href="https://github.com/frostyard/chairlift/releases" class="text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300">View releases on GitHub →</a>
 				</div>
 			</div>
 		</div>

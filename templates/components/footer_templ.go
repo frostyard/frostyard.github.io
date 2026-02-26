@@ -29,7 +29,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<footer class=\"border-t border-slate-800 mt-16\"><div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8\"><div class=\"flex flex-col sm:flex-row items-center justify-between gap-4\"><p class=\"text-sm text-slate-400\">Frostyard — Secure, reproducible Linux images</p><div class=\"flex items-center space-x-6\"><a href=\"https://github.com/frostyard\" class=\"text-sm text-slate-400 hover:text-slate-200 transition-colors\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a> <a href=\"/community/\" class=\"text-sm text-slate-400 hover:text-slate-200 transition-colors\">Community</a></div></div></div></footer>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<footer class=\"border-t border-slate-200 dark:border-slate-800 mt-16\"><div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8\"><div class=\"flex flex-col sm:flex-row items-center justify-between gap-4\"><p class=\"text-sm text-slate-500 dark:text-slate-400\">Frostyard — Secure, reproducible Linux images</p><div class=\"flex items-center space-x-6\"><a href=\"https://github.com/frostyard\" class=\"text-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a> <a href=\"/community/\" class=\"text-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors\">Community</a></div></div></div></footer>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -41,7 +41,7 @@ func Blog(meta PageMeta) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8\"><article class=\"prose prose-invert prose-slate prose-headings:scroll-mt-20 prose-a:text-sky-400 prose-code:text-sky-300 max-w-none\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8\"><article class=\"prose prose-slate dark:prose-invert prose-headings:scroll-mt-20 prose-a:text-sky-600 dark:prose-a:text-sky-400 prose-code:text-sky-700 dark:prose-code:text-sky-300 max-w-none\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

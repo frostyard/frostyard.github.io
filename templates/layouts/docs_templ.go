@@ -51,7 +51,7 @@ func Docs(meta PageMeta, sidebar []components.SidebarSection, toc []components.T
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<article class=\"flex-1 min-w-0 prose prose-invert prose-slate prose-headings:scroll-mt-20 prose-a:text-sky-400 prose-code:text-sky-300 max-w-none\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<article class=\"flex-1 min-w-0 prose prose-slate dark:prose-invert prose-headings:scroll-mt-20 prose-a:text-sky-600 dark:prose-a:text-sky-400 prose-code:text-sky-700 dark:prose-code:text-sky-300 max-w-none\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

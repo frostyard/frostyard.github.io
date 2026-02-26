@@ -36,7 +36,7 @@ func TOC(headings []TOCHeading) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if len(headings) > 1 {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<aside class=\"hidden xl:block w-56 shrink-0\"><nav class=\"sticky top-20 overflow-y-auto max-h-[calc(100vh-5rem)] py-8 pl-4\"><h4 class=\"text-sm font-semibold text-slate-200 mb-3\">On this page</h4><ul class=\"space-y-2 text-sm\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<aside class=\"hidden xl:block w-56 shrink-0\"><nav class=\"sticky top-20 overflow-y-auto max-h-[calc(100vh-5rem)] py-8 pl-4\"><h4 class=\"text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3\">On this page</h4><ul class=\"space-y-2 text-sm\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -59,7 +59,7 @@ func TOC(headings []TOCHeading) templ.Component {
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" class=\"block ml-3 text-slate-400 hover:text-slate-200 transition-colors\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" class=\"block ml-3 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors\">")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -90,7 +90,7 @@ func TOC(headings []TOCHeading) templ.Component {
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\" class=\"block text-slate-400 hover:text-slate-200 transition-colors\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\" class=\"block text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors\">")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}

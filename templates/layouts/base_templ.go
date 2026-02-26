@@ -111,7 +111,7 @@ func Base(meta PageMeta) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<link rel=\"stylesheet\" href=\"/css/style.css\"><link rel=\"stylesheet\" href=\"/pagefind/pagefind-ui.css\"><script src=\"/pagefind/pagefind-ui.js\"></script></head><body class=\"bg-slate-900 text-slate-100 min-h-screen flex flex-col\"><!-- Frost gradient line --><div class=\"h-0.5 bg-gradient-to-r from-sky-400 via-blue-400 to-sky-500\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<link rel=\"stylesheet\" href=\"/css/style.css\"><link rel=\"stylesheet\" href=\"/pagefind/pagefind-ui.css\"><script src=\"/pagefind/pagefind-ui.js\"></script></head><body class=\"bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col\"><!-- Frost gradient line --><div class=\"h-0.5 bg-gradient-to-r from-sky-400 via-blue-400 to-sky-500\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
