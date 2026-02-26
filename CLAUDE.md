@@ -45,3 +45,7 @@ All tests are in `internal/content/`. Run with `go test ./... -v`. No tests exis
 ## Icons
 
 Sidebar section icons use Heroicons (16x16 solid) rendered as inline SVG in `templates/components/icon.templ`. The `icon` frontmatter field in `_index.md` maps to icon names. See `/add-icon` skill for adding new icons.
+
+## Tools
+
+Use `brew` to install any missing tools (go, npm).
