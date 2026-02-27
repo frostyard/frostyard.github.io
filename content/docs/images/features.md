@@ -1,5 +1,5 @@
 ---
-title: "Image Features"
+title: "Common Features"
 description: "Features shared across all Frostyard images"
 weight: 2
 ---
@@ -15,6 +15,14 @@ Images are delivered as OCI container images and applied atomically. Updates rep
 ### Immutable Root
 
 The root filesystem is read-only. System binaries live under `/usr/` and cannot be modified at runtime. Configuration defaults ship in `/usr/etc/` and can be overridden in `/etc/` via an overlay. User data and application state persist on `/var/`.
+
+### Secure Boot
+
+All of our images support Secure Boot and our installer is configured to enable it by default.
+
+### Full Disk Encryption
+
+Our installer lets you choose Full Disk Encryption with passphrase and TPM2 unlock.
 
 ### System Extensions
 
