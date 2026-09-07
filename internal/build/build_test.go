@@ -70,4 +70,15 @@ Hello world.
 	if !strings.Contains(html, "Hello world.") {
 		t.Errorf("Expected HTML to contain 'Hello world.', got:\n%s", html)
 	}
+
+	for source, destination := range redirects {
+		redirectHTML := filepath.Join(outputDir, source, "index.html")
+		data, err := os.ReadFile(redirectHTML)
+		if err != nil {
+			t.Fatalf("expected redirect %s to exist: %v", redirectHTML, err)
+		}
+		if !strings.Contains(string(data), `content="0; url=`+destination+`"`) {
+			t.Errorf("redirect %s does not point to %s", source, destination)
+		}
+	}
 }

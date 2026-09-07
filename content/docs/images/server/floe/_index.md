@@ -1,5 +1,5 @@
 ---
-title: "Cayo"
+title: "Floe"
 description: "Headless server image with Podman"
 weight: 2
 icon: "server"
@@ -7,7 +7,7 @@ icon: "server"
 
 ## A Calm and Stable Server
 
-Cayo is a headless server image built on the Debian backports kernel. It's designed for running containerized workloads with Podman as the default container runtime.
+Floe is a headless server image built on the Debian backports kernel. It's designed for running containerized workloads with Podman as the default container runtime.
 
 ### What's Included
 
@@ -18,12 +18,12 @@ Cayo is a headless server image built on the Debian backports kernel. It's desig
 - **Storage:** cryptsetup, mdadm, thin-provisioning-tools, LVM2
 - **Monitoring:** linux-perf, linux-cpupower
 
-### When to Use Cayo
+### When to Use Floe
 
-Cayo is the right choice for headless servers, home labs, and container hosts where you want an immutable base OS with Podman. If you also need Docker CE or Incus for virtual machines, choose Cayo Loaded.
+Floe is the right choice for headless servers, home labs, and container hosts where you want an immutable base OS with Podman. Add Docker or Incus with system extensions when needed.
 
 ### Pulling the Image
 
 ```bash
-podman pull ghcr.io/frostyard/cayo:latest
+podman pull ghcr.io/frostyard/floe:latest
 ```

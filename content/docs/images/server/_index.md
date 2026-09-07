@@ -9,5 +9,4 @@ Server images provide a headless Debian base optimized for running containerized
 
 | Image | Containers | Virtualization |
 |-------|-----------|----------------|
-| Cayo | Podman, Distrobox, Buildah | — |
-| Cayo Loaded | Podman, Distrobox, Buildah, Docker CE | Incus with QEMU/KVM |
+| Floe | Podman, Distrobox, Buildah | Docker and Incus are available as system extensions |

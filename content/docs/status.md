@@ -17,4 +17,4 @@ To allow us to continue building and preparing for that day we've created [nbc](
 
 - Snow : Beta Quality
 - Snowfield: Beta Quality
-- Cayo : Alpha Quality
+- Floe : Alpha Quality
