@@ -2,6 +2,7 @@ package build
 
 import (
 	"fmt"
+	"html"
 	"io"
 	"os"
 	"os/exec"
@@ -19,6 +20,11 @@ type Config struct {
 	StaticDir  string // Path to static assets directory (e.g., "static")
 	OutputDir  string // Path to output directory (e.g., "dist")
 	Root       string // Project root directory
+}
+
+var redirects = map[string]string{
+	"/docs/images/server/cayo/":             "/docs/images/server/floe/",
+	"/docs/images/server/cayo/cayo-loaded/": "/docs/images/server/floe/",
 }
 
 // Build orchestrates the full site build: load content, render HTML, copy static assets.
@@ -48,6 +54,10 @@ func Build(cfg Config) error {
 		return fmt.Errorf("rendering static pages: %w", err)
 	}
 
+	if err := renderRedirects(cfg.OutputDir); err != nil {
+		return fmt.Errorf("rendering redirects: %w", err)
+	}
+
 	// Copy static assets
 	if err := copyDir(cfg.StaticDir, cfg.OutputDir); err != nil {
 		return fmt.Errorf("copying static assets: %w", err)
@@ -74,6 +84,32 @@ func Build(cfg Config) error {
 	}
 
 	fmt.Printf("Build complete: %s\n", cfg.OutputDir)
+	return nil
+}
+
+func renderRedirects(outputDir string) error {
+	for source, destination := range redirects {
+		outPath := filepath.Join(outputDir, source, "index.html")
+		if err := os.MkdirAll(filepath.Dir(outPath), 0o755); err != nil {
+			return fmt.Errorf("creating redirect directory for %s: %w", source, err)
+		}
+
+		escapedDestination := html.EscapeString(destination)
+		document := fmt.Sprintf(`<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url=%s">
+<link rel="canonical" href="%s">
+<title>Page moved</title>
+</head>
+<body><p>This page moved to <a href="%s">%s</a>.</p></body>
+</html>
+`, escapedDestination, escapedDestination, escapedDestination, escapedDestination)
+		if err := os.WriteFile(outPath, []byte(document), 0o644); err != nil {
+			return fmt.Errorf("writing redirect for %s: %w", source, err)
+		}
+	}
 	return nil
 }
 
@@ -187,9 +223,9 @@ func runTailwind(root, outputDir string) error {
 // renderStaticPages renders the templ-only static pages (Home, Downloads, Community).
 func renderStaticPages(outputDir string) error {
 	staticPages := map[string]func() (string, error){
-		"/":            func() (string, error) { return render.RenderStaticPage(pages.Home()) },
-		"/downloads/":  func() (string, error) { return render.RenderStaticPage(pages.Downloads()) },
-		"/community/":  func() (string, error) { return render.RenderStaticPage(pages.Community()) },
+		"/":           func() (string, error) { return render.RenderStaticPage(pages.Home()) },
+		"/downloads/": func() (string, error) { return render.RenderStaticPage(pages.Downloads()) },
+		"/community/": func() (string, error) { return render.RenderStaticPage(pages.Community()) },
 	}
 
 	for path, renderFn := range staticPages {

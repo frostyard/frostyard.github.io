@@ -9,7 +9,7 @@ icon: "cloud"
 
 All Frostyard images are immutable, atomically-updateable OCI container images built from Debian 13 (Trixie). They share a common base that includes systemd-boot, NetworkManager, firmware packages, and container tooling out of the box.
 
-Each image comes in a standard variant and a "Loaded" variant that bundles additional enterprise and developer applications.
+Optional applications and services are available as system extensions, so the base images stay focused on their hardware and workload roles.
 
 ### Desktop Images
 
@@ -17,4 +17,4 @@ Desktop images ship with the GNOME desktop environment, Flatpak, printing suppor
 
 ### Server Images
 
-Server images provide a headless Debian base with Podman, tuned for running containerized workloads. **Cayo** is the server image, available in standard and Loaded variants.
+Server images provide a headless Debian base with Podman, tuned for running containerized workloads. **Floe** is the server image.
